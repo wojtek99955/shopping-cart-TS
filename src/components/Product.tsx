@@ -37,6 +37,15 @@ const Price = styled.h3`
 const Button = styled.button`
   display: block;
   margin: auto;
+  background-color: #00d0a9;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 12px;
+  color: white;
+
+  &:hover {
+    background-color: #008970;
+  }
 `;
 
 export const Product: React.FC<Props> = ({ product }) => {
