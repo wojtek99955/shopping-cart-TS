@@ -59,6 +59,7 @@ export const Cart = () => {
                   <ItemDescription>
                     <h3>{item.title}</h3>
                     <p>{item.price} $</p>
+                    <p>{item.amount}</p>
                   </ItemDescription>
                   <Image src={item.image} />
                 </ItemContainer>

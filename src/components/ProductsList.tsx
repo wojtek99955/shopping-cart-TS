@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Product } from "./Product";
 import { Context } from "../ContextProvider";
+import { Products } from "../ContextProvider";
 
 const Container = styled.section`
   max-width: 1000px;
@@ -17,7 +18,14 @@ export const ProductsList: React.FC = () => {
   const fetchData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
     const products = await response.json();
-    ctx?.setProductsList(products);
+    ctx?.setProductsList(
+      products.map((item: Products) => {
+        return {
+          ...item,
+          amount: 0,
+        };
+      })
+    );
   };
   useEffect(() => {
     fetchData();
