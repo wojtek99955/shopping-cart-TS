@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { Context } from "../ContextProvider";
+import { Context, Products } from "../ContextProvider";
 
 interface Props {
   product: {
@@ -55,15 +55,25 @@ const Button = styled.button`
 
 export const Product: React.FC<Props> = ({ product }) => {
   const ctx = useContext(Context);
-  const handleAddToCard = () => {
-    ctx?.setCartList([product, ...ctx.cartList]);
+  const handleAddToCard = (clickedItem: Products) => {
+    ctx?.setCartList((prev) => {
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
   };
   return (
     <Container>
       <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
       <Price>{product.price}</Price>
-      <Button onClick={handleAddToCard}>Add to cart</Button>
+      <Button onClick={() => handleAddToCard(product)}>Add to cart</Button>
     </Container>
   );
 };
