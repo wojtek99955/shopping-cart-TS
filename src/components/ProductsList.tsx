@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Product } from "./Product";
+import { Context } from "../ContextProvider";
 
 const Container = styled.section`
   max-width: 1000px;
@@ -12,22 +13,22 @@ const Container = styled.section`
 `;
 
 export const ProductsList: React.FC = () => {
-  const [productsList, setProductsList] = useState([]);
+  const ctx = useContext(Context);
   const fetchData = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
     const products = await response.json();
-    setProductsList(products);
+    ctx?.setProductsList(products);
   };
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(ctx?.productsList);
 
-  console.log(productsList);
   return (
     <Container>
-      {productsList.map((product) => {
-        return <Product product={product} />;
-      })}
+      {ctx?.productsList?.map((product) => (
+        <Product product={product} />
+      ))}
     </Container>
   );
 };
