@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 type Props = {
   product: {
@@ -12,10 +13,39 @@ type Props = {
   };
 };
 
+const Image = styled.img`
+  height: 200px;
+  display: block;
+  margin: auto;
+`;
+
+const Container = styled.div`
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 1rem;
+`;
+
+const ItemName = styled.h2`
+  font-size: 1.2rem;
+  text-align: center;
+`;
+
+const Price = styled.h3`
+  text-align: center;
+`;
+
+const Button = styled.button`
+  display: block;
+  margin: auto;
+`;
+
 export const Product: React.FC<Props> = ({ product }) => {
   return (
-    <div>
-      <h2>{product.title}</h2>
-    </div>
+    <Container>
+      <Image src={product.image} alt="" />
+      <ItemName>{product.title}</ItemName>
+      <Price>{product.price} $</Price>
+      <Button>Add to cart</Button>
+    </Container>
   );
 };

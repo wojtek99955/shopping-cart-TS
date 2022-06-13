@@ -1,4 +1,15 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
+import { Product } from "./Product";
+
+const Container = styled.section`
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  padding: 5rem 0;
+`;
 
 export const ProductsList: React.FC = () => {
   const [productsList, setProductsList] = useState([]);
@@ -12,5 +23,11 @@ export const ProductsList: React.FC = () => {
   }, []);
 
   console.log(productsList);
-  return <div>ProductsList</div>;
+  return (
+    <Container>
+      {productsList.map((product) => {
+        return <Product product={product} />;
+      })}
+    </Container>
+  );
 };
