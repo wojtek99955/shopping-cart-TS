@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Context } from "../ContextProvider";
+import { useContext } from "react";
 
 const StyledHeader = styled.header`
   border-bottom: 1px solid grey;
@@ -14,10 +16,15 @@ const CartIcon = styled(AiOutlineShoppingCart)`
 `;
 
 const Header: React.FC = () => {
+  const ctx = useContext(Context);
+  const handleOpenCart = () => {
+    ctx?.setOpenCart((prev) => !prev);
+  };
+  console.log(ctx?.openCart);
   return (
     <StyledHeader>
       <div>Fancy Shop</div>
-      <CartIcon />
+      <CartIcon onClick={handleOpenCart} />
     </StyledHeader>
   );
 };
