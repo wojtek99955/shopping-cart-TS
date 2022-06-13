@@ -10,8 +10,11 @@ const Container = styled.section`
   top: 0;
   right: 0;
   background-color: white;
+  overflow: scroll;
 `;
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  padding: 2rem;
+`;
 const CloseIcon = styled(AiOutlineCloseCircle)`
   font-size: 2rem;
   color: black;
@@ -19,6 +22,23 @@ const CloseIcon = styled(AiOutlineCloseCircle)`
   position: absolute;
   right: 1rem;
   top: 1rem;
+`;
+
+const ItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+`;
+const ItemDescription = styled.div`
+  p {
+    margin-top: 2rem;
+  }
+`;
+const Image = styled.img`
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
 `;
 export const Cart = () => {
   const ctx = useContext(Context);
@@ -33,6 +53,17 @@ export const Cart = () => {
           <CloseIcon onClick={handleCloseCart} />
           <Wrapper>
             <h2>Your Cart</h2>
+            {ctx.cartList?.map((item) => {
+              return (
+                <ItemContainer>
+                  <ItemDescription>
+                    <h3>{item.title}</h3>
+                    <p>{item.price} $</p>
+                  </ItemDescription>
+                  <Image src={item.image} />
+                </ItemContainer>
+              );
+            })}
           </Wrapper>
         </Container>
       ) : null}

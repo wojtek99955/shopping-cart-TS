@@ -1,7 +1,8 @@
-import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import { Context } from "../ContextProvider";
 
-type Props = {
+interface Props {
   product: {
     category: string;
     title: string;
@@ -10,11 +11,14 @@ type Props = {
     image: string;
     price: number;
     rating: Object;
+    amount: number;
   };
-};
+}
 
 const Image = styled.img`
-  height: 200px;
+  height: 11rem;
+  width: 11rem;
+  object-fit: contain;
   display: block;
   margin: auto;
 `;
@@ -28,6 +32,7 @@ const Container = styled.div`
 const ItemName = styled.h2`
   font-size: 1.2rem;
   text-align: center;
+  margin: 2rem 0;
 `;
 
 const Price = styled.h3`
@@ -49,12 +54,16 @@ const Button = styled.button`
 `;
 
 export const Product: React.FC<Props> = ({ product }) => {
+  const ctx = useContext(Context);
+  const handleAddToCard = () => {
+    ctx?.setCartList([product, ...ctx.cartList]);
+  };
   return (
     <Container>
-      <Image src={product.image} alt="" />
+      <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
-      <Price>{product.price} $</Price>
-      <Button>Add to cart</Button>
+      <Price>{product.price}</Price>
+      <Button onClick={handleAddToCard}>Add to cart</Button>
     </Container>
   );
 };
