@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Context } from "../ContextProvider";
 import { useContext } from "react";
+import { Cart } from "./Cart";
 
 const StyledHeader = styled.header`
   border-bottom: 1px solid grey;
@@ -46,15 +47,18 @@ const Header: React.FC = () => {
     return acc + obj.amount;
   }, 0);
   return (
-    <StyledHeader>
-      <Container>
-        <div>Fancy Shop</div>
-        <IconContainer>
-          <CartIcon onClick={handleOpenCart} />
-          <p>{allItems}</p>
-        </IconContainer>
-      </Container>
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <Container>
+          <div>Fancy Shop</div>
+          <IconContainer>
+            <CartIcon onClick={handleOpenCart} />
+            <p>{allItems}</p>
+          </IconContainer>
+        </Container>
+      </StyledHeader>
+      <Cart />
+    </>
   );
 };
 
