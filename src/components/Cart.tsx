@@ -11,6 +11,7 @@ const Container = styled.section`
   right: 0;
   background-color: white;
   overflow: scroll;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 `;
 const Wrapper = styled.div`
   padding: 2rem;
