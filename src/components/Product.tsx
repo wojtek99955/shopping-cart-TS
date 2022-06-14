@@ -72,7 +72,7 @@ export const Product: React.FC<Props> = ({ product }) => {
     <Container>
       <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
-      <Price>{product.price}</Price>
+      <Price>{product.price} $</Price>
       <Button onClick={() => handleAddToCard(product)}>Add to cart</Button>
     </Container>
   );
