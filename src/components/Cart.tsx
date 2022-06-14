@@ -69,6 +69,24 @@ const QuantityBtn = styled.button`
     background-color: #d2fff6;
   }
 `;
+
+const CheckoutBtn = styled.button`
+  display: block;
+  margin: auto;
+  width: 7rem;
+  height: 2.5rem;
+  background-color: #00d0a9;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #008970;
+  }
+`;
+
 export const Cart = () => {
   const ctx = useContext(Context);
   const handleCloseCart = () => {
@@ -145,6 +163,7 @@ export const Cart = () => {
                 </ItemContainer>
               );
             })}
+            <CheckoutBtn>checkout</CheckoutBtn>
           </Wrapper>
         </Container>
       ) : null}
