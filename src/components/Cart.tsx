@@ -118,7 +118,7 @@ export const Cart = () => {
                 <ItemContainer>
                   <ItemDescription>
                     <h3>{item.title}</h3>
-                    <p>Price: ${item.amount * item.price} </p>
+                    <p>Price: ${(item.amount * item.price).toFixed(2)} </p>
                     <QuantityContainer>
                       <QuantityBtn
                         onClick={() => {
