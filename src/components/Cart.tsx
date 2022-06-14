@@ -87,6 +87,16 @@ const CheckoutBtn = styled.button`
   }
 `;
 
+const TotalSum = styled.h3`
+  text-align: right;
+  padding: 2rem 0;
+`;
+
+const Divider = styled.hr`
+  height: 1px;
+  background-color: grey;
+`;
+
 export const Cart = () => {
   const ctx = useContext(Context);
   const handleCloseCart = () => {
@@ -127,6 +137,10 @@ export const Cart = () => {
     });
   };
 
+  const totalSum = ctx?.cartList.reduce((accumulator, object) => {
+    return accumulator + object.price * object.amount;
+  }, 0);
+
   return (
     <>
       {ctx?.openCart ? (
@@ -163,6 +177,8 @@ export const Cart = () => {
                 </ItemContainer>
               );
             })}
+            <Divider />
+            <TotalSum>TOTAL: ${totalSum?.toFixed(2)} </TotalSum>
             <CheckoutBtn>checkout</CheckoutBtn>
           </Wrapper>
         </Container>
