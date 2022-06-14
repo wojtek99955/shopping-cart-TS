@@ -29,7 +29,7 @@ const ItemContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 `;
 const ItemDescription = styled.div`
   p {
@@ -40,6 +40,30 @@ const Image = styled.img`
   width: 10rem;
   height: 10rem;
   object-fit: contain;
+`;
+
+const QuantityContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 10rem;
+  margin-top: 2rem;
+
+  p {
+    margin: 0;
+  }
+`;
+const QuantityBtn = styled.button`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #00d0a9;
+  color: white;
+  &:hover {
+    background-color: #008970;
+  }
 `;
 export const Cart = () => {
   const ctx = useContext(Context);
@@ -60,7 +84,11 @@ export const Cart = () => {
                   <ItemDescription>
                     <h3>{item.title}</h3>
                     <p>{item.price} $</p>
-                    <p>{item.amount}</p>
+                    <QuantityContainer>
+                      <QuantityBtn>-</QuantityBtn>
+                      <p>{item.amount}</p>
+                      <QuantityBtn>+</QuantityBtn>
+                    </QuantityContainer>
                   </ItemDescription>
                   <Image src={item.image} />
                 </ItemContainer>
