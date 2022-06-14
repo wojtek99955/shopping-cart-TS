@@ -124,6 +124,7 @@ export const Cart = () => {
                         onClick={() => {
                           removeQuantity(item);
                         }}
+                        disabled={item.amount === 0}
                       >
                         -
                       </QuantityBtn>
