@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { Context } from "../ContextProvider";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { Products } from "../ContextProvider";
 
 const Container = styled.section`
   position: fixed;
@@ -71,6 +72,40 @@ export const Cart = () => {
     ctx?.setOpenCart(false);
   };
 
+  const addQuantity = (clickedItem: Products) => {
+    ctx?.setCartList((prev) => {
+      const findItem = prev.find((item) => item.id === clickedItem.id);
+      if (findItem) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? {
+                ...item,
+                amount: item.amount + 1,
+              }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  };
+
+  const removeQuantity = (clickedItem: Products) => {
+    ctx?.setCartList((prev) => {
+      const findItem = prev.find((item) => item.id === clickedItem.id);
+      if (findItem) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? {
+                ...item,
+                amount: item.amount - 1,
+              }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  };
+
   return (
     <>
       {ctx?.openCart ? (
@@ -83,11 +118,23 @@ export const Cart = () => {
                 <ItemContainer>
                   <ItemDescription>
                     <h3>{item.title}</h3>
-                    <p>{item.price} $</p>
+                    <p>Price: ${item.amount * item.price} </p>
                     <QuantityContainer>
-                      <QuantityBtn>-</QuantityBtn>
+                      <QuantityBtn
+                        onClick={() => {
+                          removeQuantity(item);
+                        }}
+                      >
+                        -
+                      </QuantityBtn>
                       <p>{item.amount}</p>
-                      <QuantityBtn>+</QuantityBtn>
+                      <QuantityBtn
+                        onClick={() => {
+                          addQuantity(item);
+                        }}
+                      >
+                        +
+                      </QuantityBtn>
                     </QuantityContainer>
                   </ItemDescription>
                   <Image src={item.image} />
