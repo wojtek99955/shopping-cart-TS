@@ -9,7 +9,7 @@ const Container = styled.section`
   margin: auto;
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 5rem 0;
 `;
 
