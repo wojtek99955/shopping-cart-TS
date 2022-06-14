@@ -65,6 +65,9 @@ const QuantityBtn = styled.button`
   &:hover {
     background-color: #008970;
   }
+  &:disabled {
+    background-color: #d2fff6;
+  }
 `;
 export const Cart = () => {
   const ctx = useContext(Context);
