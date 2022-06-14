@@ -97,6 +97,17 @@ const Divider = styled.hr`
   background-color: grey;
 `;
 
+const NoItemContainer = styled.div`
+  padding: 2rem;
+
+  h3 {
+  }
+`;
+
+const Title = styled.h2`
+  padding: 2rem;
+`;
+
 export const Cart = () => {
   const ctx = useContext(Context);
   const handleCloseCart = () => {
@@ -145,42 +156,48 @@ export const Cart = () => {
     <>
       {ctx?.openCart ? (
         <Container>
+          <Title>Your Cart</Title>
           <CloseIcon onClick={handleCloseCart} />
-          <Wrapper>
-            <h2>Your Cart</h2>
-            {ctx.cartList?.map((item) => {
-              return (
-                <ItemContainer>
-                  <ItemDescription>
-                    <h3>{item.title}</h3>
-                    <p>Price: ${(item.amount * item.price).toFixed(2)} </p>
-                    <QuantityContainer>
-                      <QuantityBtn
-                        onClick={() => {
-                          removeQuantity(item);
-                        }}
-                        disabled={item.amount === 0}
-                      >
-                        -
-                      </QuantityBtn>
-                      <p>{item.amount}</p>
-                      <QuantityBtn
-                        onClick={() => {
-                          addQuantity(item);
-                        }}
-                      >
-                        +
-                      </QuantityBtn>
-                    </QuantityContainer>
-                  </ItemDescription>
-                  <Image src={item.image} />
-                </ItemContainer>
-              );
-            })}
-            <Divider />
-            <TotalSum>TOTAL: ${totalSum?.toFixed(2)} </TotalSum>
-            <CheckoutBtn>checkout</CheckoutBtn>
-          </Wrapper>
+          {ctx.cartList.length > 0 ? (
+            <Wrapper>
+              {ctx.cartList?.map((item) => {
+                return (
+                  <ItemContainer>
+                    <ItemDescription>
+                      <h3>{item.title}</h3>
+                      <p>Price: ${(item.amount * item.price).toFixed(2)} </p>
+                      <QuantityContainer>
+                        <QuantityBtn
+                          onClick={() => {
+                            removeQuantity(item);
+                          }}
+                          disabled={item.amount === 0}
+                        >
+                          -
+                        </QuantityBtn>
+                        <p>{item.amount}</p>
+                        <QuantityBtn
+                          onClick={() => {
+                            addQuantity(item);
+                          }}
+                        >
+                          +
+                        </QuantityBtn>
+                      </QuantityContainer>
+                    </ItemDescription>
+                    <Image src={item.image} />
+                  </ItemContainer>
+                );
+              })}
+              <Divider />
+              <TotalSum>TOTAL: ${totalSum?.toFixed(2)} </TotalSum>
+              <CheckoutBtn>checkout</CheckoutBtn>
+            </Wrapper>
+          ) : (
+            <NoItemContainer>
+              <h3>No item here</h3>
+            </NoItemContainer>
+          )}
         </Container>
       ) : null}
     </>
