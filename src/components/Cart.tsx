@@ -24,6 +24,7 @@ const CloseIcon = styled(AiOutlineCloseCircle)`
   position: absolute;
   right: 1rem;
   top: 1rem;
+  cursor: pointer;
 `;
 
 const ItemContainer = styled.div`
