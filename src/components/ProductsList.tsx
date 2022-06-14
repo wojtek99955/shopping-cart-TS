@@ -10,7 +10,7 @@ const Container = styled.section`
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 5rem 0;
+  padding: 8rem 0;
 `;
 
 export const ProductsList: React.FC = () => {
