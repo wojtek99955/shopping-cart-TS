@@ -137,21 +137,17 @@ export const Cart = () => {
     });
   };
 
-  const removeQuantity = (clickedItem: Products) => {
-    ctx?.setCartList((prev) => {
-      const findItem = prev.find((item) => item.id === clickedItem.id);
-      if (findItem) {
-        return prev.map((item) =>
-          item.id === clickedItem.id
-            ? {
-                ...item,
-                amount: item.amount - 1,
-              }
-            : item
-        );
-      }
-      return [...prev, { ...clickedItem, amount: 1 }];
-    });
+  const removeQuantity = (id: number) => {
+    ctx?.setCartList((prev) =>
+      prev.reduce((ack, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return ack;
+          return [...ack, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...ack, item];
+        }
+      }, [] as Products[])
+    );
   };
 
   const totalSum = ctx?.cartList.reduce((accumulator, object) => {
@@ -175,7 +171,7 @@ export const Cart = () => {
                       <QuantityContainer>
                         <QuantityBtn
                           onClick={() => {
-                            removeQuantity(item);
+                            removeQuantity(item.id);
                           }}
                           disabled={item.amount === 0}
                         >
