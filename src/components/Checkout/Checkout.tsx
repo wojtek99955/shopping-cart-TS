@@ -11,7 +11,11 @@ const CheckoutContainer = styled.section`
   gap: 2rem;
 `;
 
-const MiddleColumn = styled.div``;
+const MiddleColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
 
 const Checkout = () => {
   return (
