@@ -76,7 +76,6 @@ const CheckoutForm = () => {
             <StyledField id="city" name="city" placeholder="City" />
 
             <StyledField id="country" name="country" placeholder="Country" />
-            <button type="submit">submit</button>
           </Form>
         </Formik>
       </FormContainer>
