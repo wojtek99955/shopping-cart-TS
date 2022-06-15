@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Context } from "../ContextProvider";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { Products } from "../ContextProvider";
+import { Link } from "react-router-dom";
 
 const Container = styled.section`
   position: fixed;
@@ -192,7 +193,9 @@ export const Cart = () => {
               })}
               <Divider />
               <TotalSum>TOTAL: ${totalSum?.toFixed(2)} </TotalSum>
-              <CheckoutBtn>checkout</CheckoutBtn>
+              <Link to="/checkout">
+                <CheckoutBtn>checkout</CheckoutBtn>
+              </Link>
             </Wrapper>
           ) : (
             <NoItemContainer>
