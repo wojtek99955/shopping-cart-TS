@@ -3,6 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Context } from "../ContextProvider";
 import { useContext } from "react";
 import { Cart } from "./Cart";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled.header`
   border-bottom: 1px solid grey;
@@ -37,6 +38,11 @@ const Container = styled.div`
   padding: 0.5rem;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 const Header: React.FC = () => {
   const ctx = useContext(Context);
   const handleOpenCart = () => {
@@ -50,7 +56,9 @@ const Header: React.FC = () => {
     <>
       <StyledHeader>
         <Container>
-          <div>Fancy Shop</div>
+          <StyledLink to="/">
+            <div>Fancy Shop</div>
+          </StyledLink>
           <IconContainer>
             <CartIcon onClick={handleOpenCart} />
             <p>{allItems}</p>
