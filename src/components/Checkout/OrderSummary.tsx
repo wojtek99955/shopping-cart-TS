@@ -4,7 +4,8 @@ import { Context } from "../../ContextProvider";
 
 const OrderContainer = styled.div`
   width: 20rem;
-  box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
+  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   padding: 1rem;
 
