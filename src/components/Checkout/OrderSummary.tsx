@@ -10,8 +10,14 @@ const OrderContainer = styled.div`
 
   h2 {
     font-weight: 400;
-    font-size: 1.2rem;
-    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    margin: 1rem;
+    text-transform: uppercase;
+    color: grey;
+
+    &:last-of-type {
+      color: black;
+    }
   }
 
   button {
@@ -36,7 +42,7 @@ const Item = styled.div`
     width: 4.5rem;
   }
   h3 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
   }
 `;
