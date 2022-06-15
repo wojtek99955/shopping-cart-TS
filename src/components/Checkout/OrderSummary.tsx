@@ -11,7 +11,7 @@ const OrderContainer = styled.div`
   h2 {
     font-weight: 400;
     font-size: 0.9rem;
-    margin: 1rem;
+    margin: 1rem 0;
     text-transform: uppercase;
     color: grey;
 
@@ -47,10 +47,11 @@ const Item = styled.div`
   }
 `;
 
-const Title = styled.div`
+export const Title = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  color: #00d0a9;
   span {
     color: white;
     background-color: #00d0a9;
