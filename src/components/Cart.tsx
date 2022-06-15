@@ -110,6 +110,10 @@ const Title = styled.h2`
   padding: 2rem;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export const Cart = () => {
   const ctx = useContext(Context);
   const handleCloseCart = () => {
@@ -193,9 +197,11 @@ export const Cart = () => {
               })}
               <Divider />
               <TotalSum>TOTAL: ${totalSum?.toFixed(2)} </TotalSum>
-              <Link to="/checkout">
-                <CheckoutBtn>checkout</CheckoutBtn>
-              </Link>
+              <StyledLink to="/checkout">
+                <CheckoutBtn onClick={() => ctx.setOpenCart(false)}>
+                  checkout
+                </CheckoutBtn>
+              </StyledLink>
             </Wrapper>
           ) : (
             <NoItemContainer>
