@@ -27,6 +27,7 @@ const OrderContainer = styled.div`
     display: block;
     margin: auto;
     margin-top: 1.5rem;
+    color: white;
   }
 `;
 
