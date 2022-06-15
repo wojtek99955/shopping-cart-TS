@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import OrderSummary from "./OrderSummary";
+import CheckoutForm from "./CheckoutForm";
 
 const CheckoutContainer = styled.section`
   padding: 6rem 0;
@@ -10,6 +11,7 @@ const CheckoutContainer = styled.section`
 const Checkout = () => {
   return (
     <CheckoutContainer>
+      <CheckoutForm />
       <OrderSummary />
     </CheckoutContainer>
   );
