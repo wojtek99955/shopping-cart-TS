@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import { ContextProvider } from "./ContextProvider";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Views/Home";
-import Checkout from "./components/Checkout";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (

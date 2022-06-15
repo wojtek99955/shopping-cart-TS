@@ -1,12 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { Context } from "../ContextProvider";
+import { Context } from "../../ContextProvider";
 
-const CheckoutContainer = styled.section`
-  padding: 6rem 0;
-  display: flex;
-  justify-content: center;
-`;
 const OrderContainer = styled.div`
   width: 20rem;
   box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
@@ -68,7 +63,7 @@ const ItemsContainer = styled.div`
   overflow-y: scroll;
 `;
 
-const Checkout = () => {
+const OrderSummary = () => {
   const ctx = useContext(Context);
   const itemNumber = ctx?.cartList.reduce((accumulator, object) => {
     return accumulator + object.amount;
@@ -79,29 +74,27 @@ const Checkout = () => {
   }, 0);
 
   return (
-    <CheckoutContainer>
-      <OrderContainer>
-        <Title>
-          <span>1</span>
-          <h1>Order Summary</h1>
-        </Title>
-        <h2>{itemNumber} items in cart</h2>
-        <ItemsContainer>
-          {ctx?.cartList.map((item) => {
-            return (
-              <Item>
-                <img src={item.image} alt="" />
-                <h3>{item.title}</h3>
-                <h3>${item.price}</h3>
-              </Item>
-            );
-          })}
-        </ItemsContainer>
-        <h2>Order Total: $ {totalSum?.toFixed(2)} </h2>
-        <button>Place Order</button>
-      </OrderContainer>
-    </CheckoutContainer>
+    <OrderContainer>
+      <Title>
+        <span>1</span>
+        <h1>Order Summary</h1>
+      </Title>
+      <h2>{itemNumber} items in cart</h2>
+      <ItemsContainer>
+        {ctx?.cartList.map((item) => {
+          return (
+            <Item>
+              <img src={item.image} alt="" />
+              <h3>{item.title}</h3>
+              <h3>${item.price}</h3>
+            </Item>
+          );
+        })}
+      </ItemsContainer>
+      <h2>Order Total: $ {totalSum?.toFixed(2)} </h2>
+      <button>Place Order</button>
+    </OrderContainer>
   );
 };
 
-export default Checkout;
+export default OrderSummary;
