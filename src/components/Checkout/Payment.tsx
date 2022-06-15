@@ -25,15 +25,18 @@ const Container = styled.div`
     position: relative;
     margin-right: 0.5rem;
     display: inline-block;
-
     vertical-align: middle;
+
+    &:hover {
+      background-color: #ccfff5;
+    }
 
     &:checked::after {
       content: "";
       width: 11px;
       height: 11px;
       border-radius: 50%;
-      background: #00d0a9;
+      background-color: #008970;
       position: absolute;
       left: 50%;
       top: 50%;
