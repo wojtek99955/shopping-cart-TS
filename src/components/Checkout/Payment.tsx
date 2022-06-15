@@ -20,9 +20,11 @@ const Container = styled.div`
 
     width: 1rem;
     height: 1rem;
-    border: 1px solid grey;
+    border: 2px solid grey;
     border-radius: 50%;
     position: relative;
+    margin-right: 0.5rem;
+    display: inline-block;
 
     vertical-align: middle;
 
