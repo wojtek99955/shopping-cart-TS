@@ -48,13 +48,14 @@ const Item = styled.div`
 const Title = styled.div`
   display: flex;
   align-items: center;
+  gap: 0.8rem;
   span {
     color: white;
     background-color: #00d0a9;
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
