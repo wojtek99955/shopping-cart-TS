@@ -19,7 +19,7 @@ const Container = styled.section<StyleProps>`
   height: ${({ loading }) => (loading ? "100vh" : null)};
   display: ${({ loading }) => (loading ? "flex" : "grid")};
   justify-content: center;
-  align-items: center;
+  align-items: ${({ loading }) => (loading ? "center" : "none")};
 `;
 
 export const ProductsList: React.FC = () => {
