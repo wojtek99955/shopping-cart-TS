@@ -67,7 +67,7 @@ const Button = styled.button`
 
 const OutlineHeart = styled(AiOutlineHeart)`
   font-size: 1.5rem;
-  color: red;
+  color: #ff555f;
 `;
 
 export const Product: React.FC<Props> = ({ product }) => {

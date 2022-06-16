@@ -26,7 +26,7 @@ const CartIcon = styled(AiOutlineShoppingCart)`
 `;
 
 const HeartIcon = styled(AiOutlineHeart)`
-  color: red;
+  color: #ff555f;
   font-size: 1.8rem;
   cursor: pointer;
 `;
