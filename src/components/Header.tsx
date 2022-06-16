@@ -4,6 +4,7 @@ import { Context } from "../ContextProvider";
 import { useContext } from "react";
 import { Cart } from "./Cart";
 import { Link } from "react-router-dom";
+import { AiOutlineHeart } from "react-icons/ai";
 
 const StyledHeader = styled.header`
   border-bottom: 1px solid grey;
@@ -13,11 +14,23 @@ const StyledHeader = styled.header`
   z-index: 2;
 
   padding: 0.6rem;
+
+  nav {
+    display: flex;
+    gap: 0.6rem;
+  }
 `;
 const CartIcon = styled(AiOutlineShoppingCart)`
   color: black;
-  font-size: 30px;
+  font-size: 1.8rem;
 `;
+
+const HeartIcon = styled(AiOutlineHeart)`
+  color: red;
+  font-size: 1.8rem;
+  cursor: pointer;
+`;
+
 const IconContainer = styled.div`
   position: relative;
   cursor: pointer;
@@ -60,10 +73,13 @@ const Header: React.FC = () => {
           <StyledLink to="/">
             <div>Fancy Shop</div>
           </StyledLink>
-          <IconContainer>
-            <CartIcon onClick={handleOpenCart} />
-            <p>{allItems}</p>
-          </IconContainer>
+          <nav>
+            <HeartIcon />
+            <IconContainer>
+              <CartIcon onClick={handleOpenCart} />
+              <p>{allItems}</p>
+            </IconContainer>
+          </nav>
         </Container>
       </StyledHeader>
       <Cart />
