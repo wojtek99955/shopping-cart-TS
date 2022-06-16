@@ -53,6 +53,10 @@ const DescriptionContainer = styled.div`
   gap: 4rem;
 `;
 
+const Loading = styled.h1`
+  text-align: center;
+`;
+
 const ProductDetails = () => {
   const { id } = useParams();
   const [details, setDetails] = useState<Products>({
@@ -65,11 +69,13 @@ const ProductDetails = () => {
     rating: {},
     amount: 0,
   });
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
     const products = await response.json();
     setDetails(products);
+    setLoading(false);
   };
   useEffect(() => {
     fetchData();
@@ -92,16 +98,24 @@ const ProductDetails = () => {
 
   return (
     <Container>
-      <DescriptionContainer>
-        <img src={details?.image} alt={details?.title} />
-        <DescriptionData>
-          <h1>{details?.title}</h1>
-          <h2>$ {details?.price}</h2>
-          <h3>Free Returns</h3>
-          <button onClick={() => handleAddToCart(details)}>add to card</button>
-        </DescriptionData>
-      </DescriptionContainer>
-      <p>{details?.description}</p>
+      {loading ? (
+        <Loading>Loading...</Loading>
+      ) : (
+        <>
+          <DescriptionContainer>
+            <img src={details?.image} alt={details?.title} />
+            <DescriptionData>
+              <h1>{details?.title}</h1>
+              <h2>$ {details?.price}</h2>
+              <h3>Free Returns</h3>
+              <button onClick={() => handleAddToCart(details)}>
+                add to card
+              </button>
+            </DescriptionData>
+          </DescriptionContainer>
+          <p>{details?.description}</p>
+        </>
+      )}
     </Container>
   );
 };
