@@ -30,6 +30,11 @@ const OrderContainer = styled.div`
     margin: auto;
     margin-top: 1.5rem;
     color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #008970;
+    }
   }
 `;
 

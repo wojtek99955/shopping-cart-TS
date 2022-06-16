@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
 
 const Container = styled.div`
-  width: 20rem;
+  width: 100%;
   box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
   border-radius: 15px;
   padding: 1rem;

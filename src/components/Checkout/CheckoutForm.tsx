@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const StyledField = styled(Field)`
   display: block;
-  width: 20rem;
+  width: 100%;
   height: 2.5rem;
   border-radius: 20px;
   margin-bottom: 1rem;

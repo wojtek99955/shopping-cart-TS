@@ -4,11 +4,16 @@ import CheckoutForm from "./CheckoutForm";
 import Payment from "./Payment";
 import ShippingMethod from "./ShippingMethod";
 
-const CheckoutContainer = styled.section`
+const Wrapper = styled.section`
+  max-width: 1200px;
+  margin: auto;
+`;
+
+const CheckoutContainer = styled.div`
   padding: 6rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 `;
 
 const MiddleColumn = styled.div`
@@ -19,14 +24,16 @@ const MiddleColumn = styled.div`
 
 const Checkout = () => {
   return (
-    <CheckoutContainer>
-      <CheckoutForm />
-      <MiddleColumn>
-        <Payment />
-        <ShippingMethod />
-      </MiddleColumn>
-      <OrderSummary />
-    </CheckoutContainer>
+    <Wrapper>
+      <CheckoutContainer>
+        <CheckoutForm />
+        <MiddleColumn>
+          <Payment />
+          <ShippingMethod />
+        </MiddleColumn>
+        <OrderSummary />
+      </CheckoutContainer>
+    </Wrapper>
   );
 };
 
