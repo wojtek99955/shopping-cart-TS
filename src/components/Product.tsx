@@ -31,6 +31,11 @@ const Container = styled.div`
     inset 0 0 0 1px rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   padding: 1rem;
+  transition: transform 100ms ease-in;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const ItemName = styled.h2`
