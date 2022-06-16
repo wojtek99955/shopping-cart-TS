@@ -1,15 +1,24 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import LoadingSpinner from "../assets/LoadingSpinner";
 import { Products } from "../ContextProvider";
 import { Context } from "../ContextProvider";
 
-const Container = styled.div`
+interface StyleProps {
+  loading: boolean;
+}
+
+const Container = styled.div<StyleProps>`
   padding-top: 8rem;
   max-width: 800px;
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  height: ${({ loading }) => (loading ? "100vh" : null)};
+  display: ${({ loading }) => (loading ? "flex" : "block")};
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 20rem;
@@ -97,9 +106,9 @@ const ProductDetails = () => {
   };
 
   return (
-    <Container>
+    <Container loading={loading}>
       {loading ? (
-        <Loading>Loading...</Loading>
+        <LoadingSpinner />
       ) : (
         <>
           <DescriptionContainer>
