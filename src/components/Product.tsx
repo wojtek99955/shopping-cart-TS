@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { Context, Products } from "../ContextProvider";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { MouseEvent } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 
 interface Props {
   product: {
@@ -64,14 +65,23 @@ const Button = styled.button`
     background-color: #008970;
   }
 `;
-
+const HeartIconContainer = styled.div`
+  display: inline-block;
+  cursor: pointer;
+`;
 const OutlineHeart = styled(AiOutlineHeart)`
+  font-size: 1.5rem;
+  color: #ff555f;
+`;
+
+const FilledHeart = styled(AiFillHeart)`
   font-size: 1.5rem;
   color: #ff555f;
 `;
 
 export const Product: React.FC<Props> = ({ product }) => {
   const ctx = useContext(Context);
+  const [heartHovered, setHeartHovered] = useState(false);
   const handleAddToCard = (clickedItem: Products, e: MouseEvent) => {
     e.stopPropagation();
     ctx?.setCartList((prev) => {
@@ -92,7 +102,12 @@ export const Product: React.FC<Props> = ({ product }) => {
   };
   return (
     <Container onClick={showDetails}>
-      <OutlineHeart />
+      <HeartIconContainer
+        onMouseEnter={() => setHeartHovered(true)}
+        onMouseLeave={() => setHeartHovered(false)}
+      >
+        {heartHovered ? <FilledHeart /> : <OutlineHeart />}
+      </HeartIconContainer>
       <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
       <Price>{product.price} $</Price>
