@@ -2,16 +2,13 @@ import React from "react";
 import { Title, FormContainer } from "./assets/atoms/CardsStyles";
 import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
+import { radioValues } from "./assets/interfaces/Interfaces";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;
 `;
 
-interface formValues {
-  picked: string;
-}
-
-const initialValues = {
+const initialValues: radioValues = {
   picked: "",
 };
 

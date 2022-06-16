@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Title } from "./assets/atoms/CardsStyles";
+import { FormValues } from "./assets/interfaces/Interfaces";
 
 const Container = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
@@ -26,14 +27,6 @@ const StyledField = styled(Field)`
 const FormContainer = styled.div`
   padding-top: 1rem;
 `;
-interface FormValues {
-  firstName: string;
-  lastName: string;
-  address: string;
-  zipp: string;
-  city: string;
-  country: string;
-}
 
 const CheckoutForm = () => {
   const initialValues: FormValues = {
