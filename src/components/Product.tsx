@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Context, Products } from "../ContextProvider";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { MouseEvent } from "react";
 
 interface Props {
   product: {
@@ -58,7 +60,8 @@ const Button = styled.button`
 
 export const Product: React.FC<Props> = ({ product }) => {
   const ctx = useContext(Context);
-  const handleAddToCard = (clickedItem: Products) => {
+  const handleAddToCard = (clickedItem: Products, e: MouseEvent) => {
+    e.stopPropagation();
     ctx?.setCartList((prev) => {
       const isItemInCart = prev.find((item) => item.id === clickedItem.id);
       if (isItemInCart) {
@@ -71,13 +74,16 @@ export const Product: React.FC<Props> = ({ product }) => {
       return [...prev, { ...clickedItem, amount: 1 }];
     });
   };
+  let navigate = useNavigate();
+  const showDetails = () => {
+    navigate(`/product/${product.id}`);
+  };
   return (
-    <Container>
+    <Container onClick={showDetails}>
       <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
       <Price>{product.price} $</Price>
-      <Button onClick={() => handleAddToCard(product)}>Add to cart</Button>
-      <Link to={`/product/${product.id}`}>wiecej</Link>
+      <Button onClick={(e) => handleAddToCard(product, e)}>Add to cart</Button>
     </Container>
   );
 };
