@@ -10,6 +10,48 @@ const Container = styled.div`
   padding: 1rem;
 `;
 
+const CheckboxLabel = styled.label`
+  font-size: 0.9rem;
+  color: #b4b4b4;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  border-bottom: 1px solid #b4b4b4;
+  margin: 1.5rem 0;
+`;
+
+const Checkbox = styled(Field)`
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid grey;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 2px solid grey;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: #ccfff5;
+  }
+
+  &:checked::after {
+    content: "";
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #008970;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
 const StyledField = styled(Field)`
   display: block;
   width: 100%;
@@ -30,6 +72,8 @@ const FormContainer = styled.div`
 
 const CheckoutForm = () => {
   const initialValues: FormValues = {
+    email: "",
+    newsletter: false,
     firstName: "",
     lastName: "",
     address: "",
@@ -51,6 +95,12 @@ const CheckoutForm = () => {
           }}
         >
           <Form>
+            <StyledField id="email" name="email" placeholder="Email" />
+            <CheckboxLabel>
+              <Checkbox id="newsletter" name="newsletter" type="checkbox" />
+              Subscribe to Newsletter
+            </CheckboxLabel>
+            <Divider />
             <StyledField
               id="firstName"
               name="firstName"
