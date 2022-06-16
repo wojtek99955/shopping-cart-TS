@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Title } from "./OrderSummary";
+import { Title } from "./assets/atoms/CardsStyles";
 
 const Container = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
@@ -69,13 +69,9 @@ const CheckoutForm = () => {
               name="lastName"
               placeholder="Last Name"
             />
-
             <StyledField id="address" name="address" placeholder="Address" />
-
             <StyledField id="zipp" name="zipp" placeholder="Zipp Code" />
-
             <StyledField id="city" name="city" placeholder="City" />
-
             <StyledField id="country" name="country" placeholder="Country" />
           </Form>
         </Formik>

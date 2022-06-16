@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { Context } from "../../ContextProvider";
+import { Title } from "./assets/atoms/CardsStyles";
 
 const OrderContainer = styled.div`
   width: 20rem;
@@ -50,24 +51,6 @@ const Item = styled.div`
   h3 {
     font-size: 0.8rem;
     font-weight: 400;
-  }
-`;
-
-export const Title = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  color: #00d0a9;
-  span {
-    color: white;
-    background-color: #00d0a9;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
 
