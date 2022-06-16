@@ -4,6 +4,7 @@ import { Context, Products } from "../ContextProvider";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { MouseEvent } from "react";
+import { AiOutlineHeart } from "react-icons/ai";
 
 interface Props {
   product: {
@@ -39,9 +40,10 @@ const Container = styled.div`
 `;
 
 const ItemName = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: center;
   margin: 2rem 0;
+  font-weight: 600;
 `;
 
 const Price = styled.h3`
@@ -61,6 +63,11 @@ const Button = styled.button`
   &:hover {
     background-color: #008970;
   }
+`;
+
+const OutlineHeart = styled(AiOutlineHeart)`
+  font-size: 1.5rem;
+  color: red;
 `;
 
 export const Product: React.FC<Props> = ({ product }) => {
@@ -85,6 +92,7 @@ export const Product: React.FC<Props> = ({ product }) => {
   };
   return (
     <Container onClick={showDetails}>
+      <OutlineHeart />
       <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
       <Price>{product.price} $</Price>
