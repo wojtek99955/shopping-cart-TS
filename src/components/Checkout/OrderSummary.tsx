@@ -84,7 +84,7 @@ const OrderSummary = () => {
   return (
     <OrderContainer>
       <Title>
-        <span>1</span>
+        <span>4</span>
         <h1>Order Summary</h1>
       </Title>
       <h2>{itemNumber} items in cart</h2>

@@ -13,7 +13,7 @@ const ShippingMethod = () => {
   return (
     <Container>
       <Title>
-        <span>2</span>
+        <span>3</span>
         <h1>Shipping Methods</h1>
       </Title>
     </Container>
