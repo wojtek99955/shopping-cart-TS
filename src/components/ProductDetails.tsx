@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Products } from "../ContextProvider";
+import { Context } from "../ContextProvider";
 
 const Container = styled.div`
   padding-top: 8rem;
@@ -54,7 +55,16 @@ const DescriptionContainer = styled.div`
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [details, setDetails] = useState<Products | null>(null);
+  const [details, setDetails] = useState<Products>({
+    category: "string",
+    title: "string",
+    description: "string",
+    id: 0,
+    image: "string",
+    price: 0,
+    rating: {},
+    amount: 0,
+  });
 
   const fetchData = async () => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -65,6 +75,21 @@ const ProductDetails = () => {
     fetchData();
   }, []);
 
+  const ctx = useContext(Context);
+  const handleAddToCart = (clickedItem: Products) => {
+    ctx?.setCartList((prev) => {
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  };
+
   return (
     <Container>
       <DescriptionContainer>
@@ -73,7 +98,7 @@ const ProductDetails = () => {
           <h1>{details?.title}</h1>
           <h2>$ {details?.price}</h2>
           <h3>Free Returns</h3>
-          <button>add to card</button>
+          <button onClick={() => handleAddToCart(details)}>add to card</button>
         </DescriptionData>
       </DescriptionContainer>
       <p>{details?.description}</p>
