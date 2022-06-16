@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { Context, Products } from "../ContextProvider";
+import { Link } from "react-router-dom";
 
 interface Props {
   product: {
@@ -76,6 +77,7 @@ export const Product: React.FC<Props> = ({ product }) => {
       <ItemName>{product.title}</ItemName>
       <Price>{product.price} $</Price>
       <Button onClick={() => handleAddToCard(product)}>Add to cart</Button>
+      <Link to={`/product/${product.id}`}>wiecej</Link>
     </Container>
   );
 };
