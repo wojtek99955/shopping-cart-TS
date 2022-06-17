@@ -4,6 +4,7 @@ import styled from "styled-components";
 import LoadingSpinner from "../assets/LoadingSpinner";
 import { Products } from "../ContextProvider";
 import { Context } from "../ContextProvider";
+import { device } from "../assets/media";
 
 interface StyleProps {
   loading: boolean;
@@ -15,16 +16,17 @@ const Container = styled.div<StyleProps>`
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  display: block;
   justify-content: center;
   align-items: center;
 
   img {
     width: 20rem;
+    display: block;
+    margin: auto;
   }
 
   h1 {
-    margin-bottom: 2rem;
+    margin: 2rem 0;
   }
   h2 {
     margin-bottom: 1.5rem;
@@ -56,9 +58,11 @@ const DescriptionData = styled.div`
 `;
 
 const DescriptionContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 4rem;
+  @media ${device.laptop} {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+  }
 `;
 
 const Loading = styled.h1`
