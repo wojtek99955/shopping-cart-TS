@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Views/Home";
 import Checkout from "./components/Checkout/Checkout";
 import ProductDetails from "./components/ProductDetails";
+import LikedItems from "./components/LikedItems";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/favorites" element={<LikedItems />} />
         </Routes>
       </ContextProvider>
     </>
