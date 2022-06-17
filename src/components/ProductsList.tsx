@@ -5,6 +5,7 @@ import { Context } from "../ContextProvider";
 import { Products } from "../ContextProvider";
 import LoadingSpinner from "../assets/LoadingSpinner";
 import Filter from "./Filter";
+import { device } from "../assets/media";
 
 interface StyleProps {
   loading: boolean;
@@ -14,10 +15,18 @@ const Container = styled.div<StyleProps>`
   max-width: 1000px;
   margin: auto;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  grid-template-columns: 1fr;
   padding: 8rem 0;
   display: grid;
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media ${device.laptop} {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
 `;
 
 const Wrapper = styled.section`
