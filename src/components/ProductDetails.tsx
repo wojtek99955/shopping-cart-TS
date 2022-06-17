@@ -77,6 +77,7 @@ const ProductDetails = () => {
     price: 0,
     rating: {},
     amount: 0,
+    liked: false,
   });
   const [loading, setLoading] = useState(true);
 
