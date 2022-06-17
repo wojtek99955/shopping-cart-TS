@@ -35,6 +35,7 @@ const Container = styled.div`
   border-radius: 20px;
   padding: 1rem;
   transition: transform 100ms ease-in;
+  position: relative;
 
   &:hover {
     transform: scale(1.05);
@@ -50,6 +51,7 @@ const ItemName = styled.h2`
 
 const Price = styled.h3`
   text-align: center;
+  margin-bottom: 3rem;
 `;
 
 const Button = styled.button`
@@ -61,6 +63,10 @@ const Button = styled.button`
   border-radius: 12px;
   color: white;
   cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -1rem);
 
   &:hover {
     background-color: #008970;
