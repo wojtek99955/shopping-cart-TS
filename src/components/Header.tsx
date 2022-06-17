@@ -74,7 +74,9 @@ const Header: React.FC = () => {
             <div>Fancy Shop</div>
           </StyledLink>
           <nav>
-            <HeartIcon />
+            <StyledLink to="/favorites">
+              <HeartIcon />
+            </StyledLink>
             <IconContainer>
               <CartIcon onClick={handleOpenCart} />
               <p>{allItems}</p>
