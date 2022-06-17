@@ -17,6 +17,7 @@ interface Props {
     price: number;
     rating: Object;
     amount: number;
+    liked: boolean;
   };
 }
 
@@ -82,6 +83,7 @@ const FilledHeart = styled(AiFillHeart)`
 export const Product: React.FC<Props> = ({ product }) => {
   const ctx = useContext(Context);
   const [heartHovered, setHeartHovered] = useState(false);
+
   const handleAddToCard = (clickedItem: Products, e: MouseEvent) => {
     e.stopPropagation();
     ctx?.setCartList((prev) => {
@@ -96,17 +98,36 @@ export const Product: React.FC<Props> = ({ product }) => {
       return [...prev, { ...clickedItem, amount: 1 }];
     });
   };
+
+  const handleLike = (clickedItem: Products, e: MouseEvent) => {
+    e.stopPropagation();
+    ctx?.setProductsList((prev) => {
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id ? { ...item, liked: !item.liked } : item
+        );
+      }
+      return [...prev];
+    });
+    console.log(clickedItem.liked);
+  };
+
   let navigate = useNavigate();
   const showDetails = () => {
     navigate(`/product/${product.id}`);
   };
+
   return (
     <Container onClick={showDetails}>
       <HeartIconContainer
         onMouseEnter={() => setHeartHovered(true)}
         onMouseLeave={() => setHeartHovered(false)}
+        onClick={(e) => {
+          handleLike(product, e);
+        }}
       >
-        {heartHovered ? <FilledHeart /> : <OutlineHeart />}
+        {heartHovered || product.liked ? <FilledHeart /> : <OutlineHeart />}
       </HeartIconContainer>
       <Image src={product.image} alt={product.title} />
       <ItemName>{product.title}</ItemName>
