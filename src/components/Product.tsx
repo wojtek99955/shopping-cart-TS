@@ -130,7 +130,7 @@ export const Product: React.FC<Props> = ({ product }) => {
         {heartHovered || product.liked ? <FilledHeart /> : <OutlineHeart />}
       </HeartIconContainer>
       <Image src={product.image} alt={product.title} />
-      <ItemName>{product.title}</ItemName>
+      <ItemName>{product.title.slice(0, 35)}...</ItemName>
       <Price>{product.price} $</Price>
       <Button onClick={(e) => handleAddToCard(product, e)}>Add to cart</Button>
     </Container>
