@@ -4,12 +4,13 @@ import { Product } from "./Product";
 import { Context } from "../ContextProvider";
 import { Products } from "../ContextProvider";
 import LoadingSpinner from "../assets/LoadingSpinner";
+import Filter from "./Filter";
 
 interface StyleProps {
   loading: boolean;
 }
 
-const Container = styled.section<StyleProps>`
+const Container = styled.div<StyleProps>`
   max-width: 1000px;
   margin: auto;
   display: grid;
@@ -20,6 +21,10 @@ const Container = styled.section<StyleProps>`
   display: ${({ loading }) => (loading ? "flex" : "grid")};
   justify-content: center;
   align-items: ${({ loading }) => (loading ? "center" : "none")};
+`;
+
+const Wrapper = styled.section`
+  display: flex;
 `;
 
 export const ProductsList: React.FC = () => {
@@ -44,16 +49,20 @@ export const ProductsList: React.FC = () => {
   }, []);
 
   return (
-    <Container loading={loading}>
-      {loading ? (
-        <LoadingSpinner />
-      ) : (
-        <>
-          {ctx?.productsList?.map((product) => (
-            <Product product={product} />
-          ))}
-        </>
-      )}
-    </Container>
+    <Wrapper>
+      <p>fefe</p>
+      <Filter />
+      <Container loading={loading}>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            {ctx?.productsList?.map((product) => (
+              <Product product={product} />
+            ))}
+          </>
+        )}
+      </Container>
+    </Wrapper>
   );
 };
