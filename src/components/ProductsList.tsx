@@ -53,7 +53,7 @@ export const ProductsList: React.FC = () => {
   return (
     <Wrapper>
       <p>fefe</p>
-      <Filter />
+      <Filter loading={loading} setLoading={setLoading} />
       <Container loading={loading}>
         {loading ? (
           <LoadingSpinner />

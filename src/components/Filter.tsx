@@ -50,13 +50,19 @@ const StyledRadio = styled(Field)`
   }
 `;
 
-const Filter = () => {
+interface Props {
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Filter = ({ loading, setLoading }: Props) => {
   const [category, setCategory] = useState<null | string>(null);
   console.log(category + "category");
 
   const ctx = useContext(Context);
 
   const fetchData = async () => {
+    setLoading(true);
     const response = await fetch(
       `https://fakestoreapi.com/products/${category}`
     );
@@ -70,6 +76,7 @@ const Filter = () => {
         };
       })
     );
+    setLoading(false);
   };
 
   useEffect(() => {
