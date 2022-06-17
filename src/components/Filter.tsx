@@ -58,7 +58,7 @@ const Filter = () => {
 
   const fetchData = async () => {
     const response = await fetch(
-      `https://fakestoreapi.com/products/category/${category}`
+      `https://fakestoreapi.com/products/${category}`
     );
     const products = await response.json();
     ctx?.setProductsList(
@@ -92,7 +92,21 @@ const Filter = () => {
                 <StyledRadio
                   type="radio"
                   name="picked"
-                  value="electronics"
+                  value=""
+                  onChange={(e: any) => {
+                    submitForm();
+                    handleChange(e);
+                  }}
+                />
+                All
+              </label>
+            </Row>
+            <Row>
+              <label>
+                <StyledRadio
+                  type="radio"
+                  name="picked"
+                  value="category/electronics"
                   onChange={(e: any) => {
                     submitForm();
                     handleChange(e);
@@ -106,7 +120,7 @@ const Filter = () => {
                 <StyledRadio
                   type="radio"
                   name="picked"
-                  value="women's%20clothing"
+                  value="category/women's%20clothing"
                   onChange={(e: any) => {
                     submitForm();
                     handleChange(e);
@@ -120,7 +134,7 @@ const Filter = () => {
                 <StyledRadio
                   type="radio"
                   name="picked"
-                  value="men's%20clothing"
+                  value="category/men's%20clothing"
                   onChange={(e: any) => {
                     submitForm();
                     handleChange(e);
@@ -134,7 +148,7 @@ const Filter = () => {
                 <StyledRadio
                   type="radio"
                   name="picked"
-                  value="jewelery"
+                  value="category/jewelery"
                   onChange={(e: any) => {
                     submitForm();
                     handleChange(e);
