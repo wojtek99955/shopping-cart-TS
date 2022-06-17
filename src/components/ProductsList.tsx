@@ -33,6 +33,7 @@ export const ProductsList: React.FC = () => {
         return {
           ...item,
           amount: 0,
+          liked: false,
         };
       })
     );
@@ -41,7 +42,6 @@ export const ProductsList: React.FC = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(ctx?.productsList);
 
   return (
     <Container loading={loading}>
