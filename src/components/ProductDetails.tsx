@@ -5,6 +5,7 @@ import LoadingSpinner from "../assets/LoadingSpinner";
 import { Products } from "../ContextProvider";
 import { Context } from "../ContextProvider";
 import { device } from "../assets/media";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 interface StyleProps {
   loading: boolean;
@@ -45,6 +46,11 @@ const Container = styled.div<StyleProps>`
     background-color: #00d0a9;
     padding: 0.8rem 1.4rem;
     cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 
     &:hover {
       background-color: #008970;
@@ -67,6 +73,11 @@ const DescriptionContainer = styled.div`
 
 const Loading = styled.h1`
   text-align: center;
+`;
+
+const CartIcon = styled(AiOutlineShoppingCart)`
+  color: white;
+  font-size: 1.2rem;
 `;
 
 const ProductDetails = () => {
@@ -122,6 +133,7 @@ const ProductDetails = () => {
               <h2>$ {details?.price}</h2>
               <h3>Free Returns</h3>
               <button onClick={() => handleAddToCart(details)}>
+                <CartIcon />
                 add to card
               </button>
             </DescriptionData>
