@@ -15,8 +15,7 @@ const Container = styled.div<StyleProps>`
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  height: ${({ loading }) => (loading ? "100vh" : null)};
-  display: ${({ loading }) => (loading ? "flex" : "block")};
+  display: block;
   justify-content: center;
   align-items: center;
 

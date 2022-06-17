@@ -5,6 +5,9 @@ const Spinner = styled.div`
   position: relative;
   width: 160px;
   height: 160px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
   div {
     position: absolute;

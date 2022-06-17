@@ -17,10 +17,7 @@ const Container = styled.div<StyleProps>`
   gap: 2rem;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 8rem 0;
-  height: ${({ loading }) => (loading ? "100vh" : null)};
-  display: ${({ loading }) => (loading ? "flex" : "grid")};
-  justify-content: center;
-  align-items: ${({ loading }) => (loading ? "center" : "none")};
+  display: grid;
 `;
 
 const Wrapper = styled.section`
