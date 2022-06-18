@@ -17,7 +17,7 @@ const StyledHeader = styled.header`
 
   nav {
     display: flex;
-    gap: 0.6rem;
+    gap: 0.8rem;
   }
 `;
 const CartIcon = styled(AiOutlineShoppingCart)`
