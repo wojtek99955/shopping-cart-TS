@@ -134,7 +134,7 @@ const ProductDetails = () => {
               <h3>Free Returns</h3>
               <button onClick={() => handleAddToCart(details)}>
                 <CartIcon />
-                add to card
+                add to cart
               </button>
             </DescriptionData>
           </DescriptionContainer>
