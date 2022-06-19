@@ -77,7 +77,7 @@ const CheckoutForm = () => {
     firstName: "",
     lastName: "",
     address: "",
-    zipp: "",
+    zip: "",
     city: "",
     country: "",
   };
@@ -113,7 +113,7 @@ const CheckoutForm = () => {
               placeholder="Last Name"
             />
             <StyledField id="address" name="address" placeholder="Address" />
-            <StyledField id="zipp" name="zipp" placeholder="Zipp Code" />
+            <StyledField id="zipp" name="zip" placeholder="ZIP Code" />
             <StyledField id="city" name="city" placeholder="City" />
             <StyledField id="country" name="country" placeholder="Country" />
           </Form>
