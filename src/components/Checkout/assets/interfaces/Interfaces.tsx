@@ -8,7 +8,7 @@ export interface FormValues {
   newsletter: boolean;
   lastName: string;
   address: string;
-  zipp: string;
+  zip: string;
   city: string;
   country: string;
 }
