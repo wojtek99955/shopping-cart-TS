@@ -34,13 +34,6 @@ const HeartIcon = styled(AiOutlineHeart)`
 const IconContainer = styled.div`
   position: relative;
   cursor: pointer;
-
-  p {
-    position: absolute;
-    top: -0.5rem;
-    color: red;
-    right: -1rem;
-  }
 `;
 
 const Container = styled.div`
@@ -55,6 +48,25 @@ const Container = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
+`;
+
+const ItemCounter = styled.div`
+  position: absolute;
+  top: -0.5rem;
+  color: white;
+  right: -1rem;
+  background-color: #ff555f;
+  font-size: 10px;
+  border-radius: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 1rem;
+  }
 `;
 
 const Header: React.FC = () => {
@@ -79,7 +91,9 @@ const Header: React.FC = () => {
             </StyledLink>
             <IconContainer>
               <CartIcon onClick={handleOpenCart} />
-              <p>{allItems}</p>
+              <ItemCounter>
+                <p>{allItems}</p>
+              </ItemCounter>
             </IconContainer>
           </nav>
         </Container>
