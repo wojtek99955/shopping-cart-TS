@@ -19,6 +19,10 @@ const CheckoutContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+
+  @media ${device.laptop} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const MiddleColumn = styled.div`
