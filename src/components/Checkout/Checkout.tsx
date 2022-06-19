@@ -3,16 +3,21 @@ import OrderSummary from "./OrderSummary";
 import CheckoutForm from "./CheckoutForm";
 import Payment from "./Payment";
 import ShippingMethod from "./ShippingMethod";
+import { device } from "../../assets/media";
 
 const Wrapper = styled.section`
-  max-width: 1200px;
+  max-width: 800px;
   margin: auto;
+
+  @media ${device.laptop} {
+    max-width: 1100px;
+  }
 `;
 
 const CheckoutContainer = styled.div`
-  padding: 6rem 0;
+  padding: 6rem 1rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1rem;
 `;
 
