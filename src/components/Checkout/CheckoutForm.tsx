@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Title } from "./assets/atoms/CardsStyles";
 import { FormValues } from "./assets/interfaces/Interfaces";
+import * as Yup from "yup";
 
 const Container = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
@@ -82,6 +83,22 @@ const CheckoutForm = () => {
     country: "",
   };
 
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    lastName: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+    address: Yup.string().required("required"),
+    zip: Yup.number().required("required"),
+    city: Yup.string().required("required"),
+    country: Yup.string().required("required"),
+  });
+
   return (
     <Container>
       <Title>
@@ -90,6 +107,7 @@ const CheckoutForm = () => {
       <FormContainer>
         <Formik
           initialValues={initialValues}
+          validationSchema={validationSchema}
           onSubmit={(values) => {
             console.log(values);
           }}
@@ -100,22 +118,28 @@ const CheckoutForm = () => {
               <Checkbox id="newsletter" name="newsletter" type="checkbox" />
               Subscribe to Newsletter
             </CheckboxLabel>
+            <ErrorMessage name="email" />
             <Divider />
             <StyledField
               id="firstName"
               name="firstName"
               placeholder="First Name *"
             />
-
+            <ErrorMessage name="firstName" />
             <StyledField
               id="lastName"
               name="lastName"
               placeholder="Last Name *"
             />
+            <ErrorMessage name="lastName" />
             <StyledField id="address" name="address" placeholder="Address *" />
-            <StyledField id="zipp" name="zip" placeholder="ZIP Code *" />
+            <ErrorMessage name="address" />
+            <StyledField id="zip" name="zip" placeholder="ZIP Code *" />
+            <ErrorMessage name="zipp" />
             <StyledField id="city" name="city" placeholder="City *" />
+            <ErrorMessage name="city" />
             <StyledField id="country" name="country" placeholder="Country *" />
+            <ErrorMessage name="country" />
           </Form>
         </Formik>
       </FormContainer>
