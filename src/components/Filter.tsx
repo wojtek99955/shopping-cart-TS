@@ -4,9 +4,17 @@ import { Context } from "../ContextProvider";
 import { Formik, Field, ErrorMessage } from "formik";
 import { radioValues } from "./Checkout/assets/interfaces/Interfaces";
 import { Products } from "../ContextProvider";
+import { device } from "../assets/media";
 
 const Container = styled.div`
   padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media ${device.laptop} {
+    display: block;
+  }
 
   h3 {
     margin-bottom: 2rem;
