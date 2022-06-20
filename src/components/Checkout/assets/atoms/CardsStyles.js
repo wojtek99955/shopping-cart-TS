@@ -60,3 +60,20 @@ export const Title = styled.div`
     align-items: center;
   }
 `;
+
+export const BtnsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  button {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 15px;
+    background-color: #00d0a9;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #008970;
+    }
+  }
+`;
