@@ -101,7 +101,7 @@ const CheckoutForm = ({ step, setStep }: Props) => {
       .required("Required"),
     email: Yup.string().email("Invalid email").required("Required"),
     address: Yup.string().required("required"),
-    zip: Yup.number().required("required"),
+    zip: Yup.string().required("required"),
     city: Yup.string().required("required"),
     country: Yup.string().required("required"),
   });
