@@ -60,13 +60,18 @@ const StyledRadio = styled(Field)`
 `;
 
 const Wrapper = styled.div`
-  width: 15rem;
+  width: 13rem;
+  border: 1px solid grey;
+  padding: 0.5rem;
+
   @media ${device.laptop} {
-    width: unset;
+    border: none;
   }
 `;
 
-const CategoryContainer = styled.div``;
+const CategoryContainer = styled.div`
+  padding-top: 1.5rem;
+`;
 
 const Title = styled.div`
   display: flex;
@@ -81,10 +86,7 @@ const Title = styled.div`
 const ArrowIcon = styled(IoIosArrowDropdownCircle)`
   font-size: 2rem;
   color: #00d0a9;
-
-  @media ${device.laptop} {
-    display: none;
-  }
+  cursor: pointer;
 `;
 
 interface Props {
@@ -119,95 +121,101 @@ const Filter = ({ loading, setLoading }: Props) => {
   useEffect(() => {
     fetchData();
   }, [category]);
+  const [showCategories, setShowCategories] = useState(false);
+  const handleShowCategories = () => {
+    setShowCategories((prev) => !prev);
+  };
 
   return (
     <Container>
       <Wrapper>
         <Title>
           <h3>Categories</h3>
-          <ArrowIcon />
+          <ArrowIcon onClick={handleShowCategories} />
         </Title>
-        <Formik
-          initialValues={initialValues}
-          onSubmit={(values) => {
-            setCategory(values.picked.toString());
-          }}
-        >
-          {({ submitForm, handleChange }) => (
-            <CategoryContainer>
-              <Row>
-                <label>
-                  <StyledRadio
-                    type="radio"
-                    name="picked"
-                    value=""
-                    onChange={(e: any) => {
-                      submitForm();
-                      handleChange(e);
-                    }}
-                  />
-                  All
-                </label>
-              </Row>
-              <Row>
-                <label>
-                  <StyledRadio
-                    type="radio"
-                    name="picked"
-                    value="category/electronics"
-                    onChange={(e: any) => {
-                      submitForm();
-                      handleChange(e);
-                    }}
-                  />
-                  Electronics
-                </label>
-              </Row>
-              <Row>
-                <label>
-                  <StyledRadio
-                    type="radio"
-                    name="picked"
-                    value="category/women's%20clothing"
-                    onChange={(e: any) => {
-                      submitForm();
-                      handleChange(e);
-                    }}
-                  />
-                  Women's Clothing
-                </label>
-              </Row>
-              <Row>
-                <label>
-                  <StyledRadio
-                    type="radio"
-                    name="picked"
-                    value="category/men's%20clothing"
-                    onChange={(e: any) => {
-                      submitForm();
-                      handleChange(e);
-                    }}
-                  />
-                  Men's Clothing
-                </label>
-              </Row>
-              <Row>
-                <label>
-                  <StyledRadio
-                    type="radio"
-                    name="picked"
-                    value="category/jewelery"
-                    onChange={(e: any) => {
-                      submitForm();
-                      handleChange(e);
-                    }}
-                  />
-                  Jewelery
-                </label>
-              </Row>
-            </CategoryContainer>
-          )}
-        </Formik>
+        {showCategories ? (
+          <Formik
+            initialValues={initialValues}
+            onSubmit={(values) => {
+              setCategory(values.picked.toString());
+            }}
+          >
+            {({ submitForm, handleChange }) => (
+              <CategoryContainer>
+                <Row>
+                  <label>
+                    <StyledRadio
+                      type="radio"
+                      name="picked"
+                      value=""
+                      onChange={(e: any) => {
+                        submitForm();
+                        handleChange(e);
+                      }}
+                    />
+                    All
+                  </label>
+                </Row>
+                <Row>
+                  <label>
+                    <StyledRadio
+                      type="radio"
+                      name="picked"
+                      value="category/electronics"
+                      onChange={(e: any) => {
+                        submitForm();
+                        handleChange(e);
+                      }}
+                    />
+                    Electronics
+                  </label>
+                </Row>
+                <Row>
+                  <label>
+                    <StyledRadio
+                      type="radio"
+                      name="picked"
+                      value="category/women's%20clothing"
+                      onChange={(e: any) => {
+                        submitForm();
+                        handleChange(e);
+                      }}
+                    />
+                    Women's Clothing
+                  </label>
+                </Row>
+                <Row>
+                  <label>
+                    <StyledRadio
+                      type="radio"
+                      name="picked"
+                      value="category/men's%20clothing"
+                      onChange={(e: any) => {
+                        submitForm();
+                        handleChange(e);
+                      }}
+                    />
+                    Men's Clothing
+                  </label>
+                </Row>
+                <Row>
+                  <label>
+                    <StyledRadio
+                      type="radio"
+                      name="picked"
+                      value="category/jewelery"
+                      onChange={(e: any) => {
+                        submitForm();
+                        handleChange(e);
+                      }}
+                    />
+                    Jewelery
+                  </label>
+                </Row>
+              </CategoryContainer>
+            )}
+          </Formik>
+        ) : null}
       </Wrapper>
     </Container>
   );
