@@ -4,6 +4,8 @@ import CheckoutForm from "./CheckoutForm";
 import Payment from "./Payment";
 import ShippingMethod from "./ShippingMethod";
 import { device } from "../../assets/media";
+import { useState } from "react";
+import FormStep from "./FormStep";
 
 const Wrapper = styled.section`
   max-width: 800px;
@@ -32,16 +34,10 @@ const MiddleColumn = styled.div`
 `;
 
 const Checkout = () => {
+  const [step, setStep] = useState(1);
   return (
     <Wrapper>
-      <CheckoutContainer>
-        <CheckoutForm />
-        <MiddleColumn>
-          <Payment />
-          <ShippingMethod />
-        </MiddleColumn>
-        <OrderSummary />
-      </CheckoutContainer>
+      <FormStep step={step} setStep={setStep} />
     </Wrapper>
   );
 };
