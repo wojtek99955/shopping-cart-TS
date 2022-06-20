@@ -95,7 +95,7 @@ const CheckoutForm = () => {
           }}
         >
           <Form>
-            <StyledField id="email" name="email" placeholder="Email" />
+            <StyledField id="email" name="email" placeholder="Email *" />
             <CheckboxLabel>
               <Checkbox id="newsletter" name="newsletter" type="checkbox" />
               Subscribe to Newsletter
@@ -104,18 +104,18 @@ const CheckoutForm = () => {
             <StyledField
               id="firstName"
               name="firstName"
-              placeholder="First Name"
+              placeholder="First Name *"
             />
 
             <StyledField
               id="lastName"
               name="lastName"
-              placeholder="Last Name"
+              placeholder="Last Name *"
             />
-            <StyledField id="address" name="address" placeholder="Address" />
-            <StyledField id="zipp" name="zip" placeholder="ZIP Code" />
-            <StyledField id="city" name="city" placeholder="City" />
-            <StyledField id="country" name="country" placeholder="Country" />
+            <StyledField id="address" name="address" placeholder="Address *" />
+            <StyledField id="zipp" name="zip" placeholder="ZIP Code *" />
+            <StyledField id="city" name="city" placeholder="City *" />
+            <StyledField id="country" name="country" placeholder="Country *" />
           </Form>
         </Formik>
       </FormContainer>
