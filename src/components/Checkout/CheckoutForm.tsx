@@ -4,6 +4,7 @@ import { Title } from "./assets/atoms/CardsStyles";
 import { FormValues } from "./assets/interfaces/Interfaces";
 import * as Yup from "yup";
 import ValidationError from "./assets/ValidationError";
+import { BtnsContainer } from "./assets/atoms/CardsStyles";
 
 const Container = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
@@ -72,7 +73,12 @@ const FormContainer = styled.div`
   padding-top: 1rem;
 `;
 
-const CheckoutForm = () => {
+interface Props {
+  step: number;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const CheckoutForm = ({ step, setStep }: Props) => {
   const initialValues: FormValues = {
     email: "",
     newsletter: false,
@@ -109,8 +115,10 @@ const CheckoutForm = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log(values);
+          onSubmit={(values, isValidating) => {
+            if (isValidating) {
+              setStep((prev) => prev + 1);
+            }
           }}
         >
           <Form>
@@ -141,6 +149,10 @@ const CheckoutForm = () => {
             <ErrorMessage name="city" component={ValidationError} />
             <StyledField id="country" name="country" placeholder="Country *" />
             <ErrorMessage name="country" component={ValidationError} />
+            <BtnsContainer>
+              <button disabled>prev</button>
+              <button type="submit">next</button>
+            </BtnsContainer>
           </Form>
         </Formik>
       </FormContainer>
