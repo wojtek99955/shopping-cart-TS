@@ -30,9 +30,12 @@ const Container = styled.div<StyleProps>`
 `;
 
 const Wrapper = styled.section`
-  display: flex;
   max-width: 1300px;
   margin: auto;
+
+  @media ${device.laptop} {
+    display: flex;
+  }
 `;
 
 export const ProductsList: React.FC = () => {
