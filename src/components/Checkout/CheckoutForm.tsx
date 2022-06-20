@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Title } from "./assets/atoms/CardsStyles";
 import { FormValues } from "./assets/interfaces/Interfaces";
 import * as Yup from "yup";
+import ValidationError from "./assets/ValidationError";
 
 const Container = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
@@ -114,32 +115,32 @@ const CheckoutForm = () => {
         >
           <Form>
             <StyledField id="email" name="email" placeholder="Email *" />
+            <ErrorMessage name="firstName" component={ValidationError} />
             <CheckboxLabel>
               <Checkbox id="newsletter" name="newsletter" type="checkbox" />
               Subscribe to Newsletter
             </CheckboxLabel>
-            <ErrorMessage name="email" />
             <Divider />
             <StyledField
               id="firstName"
               name="firstName"
               placeholder="First Name *"
             />
-            <ErrorMessage name="firstName" />
+            <ErrorMessage name="firstName" component={ValidationError} />
             <StyledField
               id="lastName"
               name="lastName"
               placeholder="Last Name *"
             />
-            <ErrorMessage name="lastName" />
+            <ErrorMessage name="lastName" component={ValidationError} />
             <StyledField id="address" name="address" placeholder="Address *" />
-            <ErrorMessage name="address" />
+            <ErrorMessage name="address" component={ValidationError} />
             <StyledField id="zip" name="zip" placeholder="ZIP Code *" />
-            <ErrorMessage name="zipp" />
+            <ErrorMessage name="zip" component={ValidationError} />
             <StyledField id="city" name="city" placeholder="City *" />
-            <ErrorMessage name="city" />
+            <ErrorMessage name="city" component={ValidationError} />
             <StyledField id="country" name="country" placeholder="Country *" />
-            <ErrorMessage name="country" />
+            <ErrorMessage name="country" component={ValidationError} />
           </Form>
         </Formik>
       </FormContainer>
