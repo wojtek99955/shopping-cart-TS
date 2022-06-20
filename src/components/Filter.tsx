@@ -68,6 +68,7 @@ const Wrapper = styled.div`
 
   @media ${device.laptop} {
     border: none;
+    width: 11rem;
   }
 `;
 
