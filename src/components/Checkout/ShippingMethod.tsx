@@ -3,6 +3,7 @@ import { Title, FormContainer } from "./assets/atoms/CardsStyles";
 import styled from "styled-components";
 import { Formik, Field, Form } from "formik";
 import { radioValues } from "./assets/interfaces/Interfaces";
+import { BtnsContainer } from "./assets/atoms/CardsStyles";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;
@@ -12,7 +13,12 @@ const initialValues: radioValues = {
   picked: "",
 };
 
-const ShippingMethod = () => {
+interface Props {
+  step: number;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const ShippingMethod = ({ step, setStep }: Props) => {
   return (
     <FormContainer>
       <Title>
@@ -22,7 +28,11 @@ const ShippingMethod = () => {
       <FormWrapper>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values, isValidating) => {
+            if (isValidating) {
+              setStep((prev) => prev + 1);
+            }
+          }}
         >
           <Form>
             <label>
@@ -37,6 +47,10 @@ const ShippingMethod = () => {
               <Field type="radio" name="picked" value="DHL" />
               DHL
             </label>
+            <BtnsContainer>
+              <button onClick={() => setStep((prev) => prev - 1)}>prev</button>
+              <button type="submit">next</button>
+            </BtnsContainer>
           </Form>
         </Formik>
       </FormWrapper>
