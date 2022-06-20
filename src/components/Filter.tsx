@@ -60,7 +60,10 @@ const StyledRadio = styled(Field)`
 `;
 
 const Wrapper = styled.div`
-  width: 300px;
+  width: 15rem;
+  @media ${device.laptop} {
+    width: unset;
+  }
 `;
 
 const CategoryContainer = styled.div``;
@@ -78,6 +81,10 @@ const Title = styled.div`
 const ArrowIcon = styled(IoIosArrowDropdownCircle)`
   font-size: 2rem;
   color: #00d0a9;
+
+  @media ${device.laptop} {
+    display: none;
+  }
 `;
 
 interface Props {
