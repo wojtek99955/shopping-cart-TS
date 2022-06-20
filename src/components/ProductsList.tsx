@@ -17,7 +17,7 @@ const Container = styled.div<StyleProps>`
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
-  padding: 8rem 0;
+  padding: 8rem 1rem;
   display: grid;
 
   @media ${device.tablet} {
@@ -25,7 +25,7 @@ const Container = styled.div<StyleProps>`
   }
   @media ${device.laptop} {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 `;
 
