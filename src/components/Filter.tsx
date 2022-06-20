@@ -133,9 +133,9 @@ const Filter = ({ loading, setLoading }: Props) => {
   return (
     <Container>
       <Wrapper>
-        <Title>
+        <Title onClick={handleShowCategories}>
           <h3>Categories</h3>
-          <ArrowIcon onClick={handleShowCategories} open={showCategories} />
+          <ArrowIcon open={showCategories} />
         </Title>
         {showCategories ? (
           <Formik
