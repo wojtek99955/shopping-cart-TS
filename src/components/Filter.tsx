@@ -6,7 +6,9 @@ import { radioValues } from "./Checkout/assets/interfaces/Interfaces";
 import { Products } from "../ContextProvider";
 import { device } from "../assets/media";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-
+interface IconProps {
+  open: boolean;
+}
 const Container = styled.div`
   padding-top: 5rem;
   display: flex;
@@ -83,10 +85,12 @@ const Title = styled.div`
     margin: 0;
   }
 `;
-const ArrowIcon = styled(IoIosArrowDropdownCircle)`
+const ArrowIcon = styled(IoIosArrowDropdownCircle)<IconProps>`
   font-size: 2rem;
   color: #00d0a9;
   cursor: pointer;
+  transform: ${({ open }) => (open ? "rotate(-180deg)" : null)};
+  transition: 250ms ease-in;
 `;
 
 interface Props {
@@ -131,7 +135,7 @@ const Filter = ({ loading, setLoading }: Props) => {
       <Wrapper>
         <Title>
           <h3>Categories</h3>
-          <ArrowIcon onClick={handleShowCategories} />
+          <ArrowIcon onClick={handleShowCategories} open={showCategories} />
         </Title>
         {showCategories ? (
           <Formik
