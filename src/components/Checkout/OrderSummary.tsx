@@ -62,6 +62,7 @@ const ItemDetails = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 
   h3 {
     font-size: 1rem;
@@ -70,6 +71,10 @@ const ItemDetails = styled.div`
 `;
 
 const Quantity = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
   button {
     display: block;
     width: 1.5rem;
