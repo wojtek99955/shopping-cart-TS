@@ -18,7 +18,6 @@ const initialValues: radioValues = {
 };
 
 interface Props {
-  step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -26,8 +25,7 @@ const validationSchema = Yup.object().shape({
   picked: Yup.string().required("A radio option is required"),
 });
 
-const Payment = ({ step, setStep }: Props) => {
-  console.log(step);
+const Payment = ({ setStep }: Props) => {
   return (
     <FormContainer>
       <Title>
