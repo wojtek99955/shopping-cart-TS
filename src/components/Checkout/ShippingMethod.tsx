@@ -1,9 +1,10 @@
 import React from "react";
 import { Title, FormContainer } from "./assets/atoms/CardsStyles";
 import styled from "styled-components";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import { radioValues } from "./assets/interfaces/Interfaces";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
+import * as Yup from "yup";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;
@@ -17,6 +18,10 @@ interface Props {
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
+
+const validationSchema = Yup.object().shape({
+  picked: Yup.string().required("A radio option is required"),
+});
 
 const ShippingMethod = ({ step, setStep }: Props) => {
   return (
@@ -33,6 +38,7 @@ const ShippingMethod = ({ step, setStep }: Props) => {
               setStep((prev) => prev + 1);
             }
           }}
+          validationSchema={validationSchema}
         >
           <Form>
             <label>
