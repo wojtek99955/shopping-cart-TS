@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { Context } from "../../ContextProvider";
 import { Title } from "./assets/atoms/CardsStyles";
+import { Products } from "../../ContextProvider";
 
 const OrderContainer = styled.div`
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1),
@@ -100,6 +101,36 @@ const OrderSummary = () => {
     return accumulator + object.price * object.amount;
   }, 0);
 
+  const addQuantity = (clickedItem: Products) => {
+    ctx?.setCartList((prev) => {
+      const findItem = prev.find((item) => item.id === clickedItem.id);
+      if (findItem) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? {
+                ...item,
+                amount: item.amount + 1,
+              }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  };
+
+  const removeQuantity = (id: number) => {
+    ctx?.setCartList((prev) =>
+      prev.reduce((ack, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return ack;
+          return [...ack, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...ack, item];
+        }
+      }, [] as Products[])
+    );
+  };
+
   return (
     <OrderContainer>
       <Title>
@@ -115,9 +146,21 @@ const OrderSummary = () => {
               <ItemDetails>
                 <h3>{item.title.slice(0, 15)}...</h3>
                 <Quantity>
-                  <button>-</button>
+                  <button
+                    onClick={() => {
+                      removeQuantity(item.id);
+                    }}
+                  >
+                    -
+                  </button>
                   {item.amount}
-                  <button>+</button>
+                  <button
+                    onClick={() => {
+                      addQuantity(item);
+                    }}
+                  >
+                    +
+                  </button>
                 </Quantity>
                 <h3>${item.price}</h3>
               </ItemDetails>
