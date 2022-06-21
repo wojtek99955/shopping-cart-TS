@@ -45,16 +45,28 @@ const Item = styled.div`
   gap: 1rem;
 
   img {
-    width: 4.5rem;
-  }
-  h3 {
-    font-size: 0.8rem;
-    font-weight: 400;
+    width: 7.5rem;
   }
 `;
 
 const ItemsContainer = styled.div`
   overflow-y: scroll;
+  height: 35rem;
+`;
+
+const ItemDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
+
+    &:nth-child(2) {
+      text-align: right;
+    }
+  }
 `;
 
 const OrderSummary = () => {
@@ -79,8 +91,10 @@ const OrderSummary = () => {
           return (
             <Item>
               <img src={item.image} alt="" />
-              <h3>{item.title}</h3>
-              <h3>${item.price}</h3>
+              <ItemDetails>
+                <h3>{item.title.slice(0, 15)}...</h3>
+                <h3>${item.price}</h3>
+              </ItemDetails>
             </Item>
           );
         })}
