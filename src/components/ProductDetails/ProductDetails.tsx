@@ -1,84 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
-import LoadingSpinner from "../assets/LoadingSpinner";
-import { Products } from "../ContextProvider";
-import { Context } from "../ContextProvider";
-import { device } from "../assets/media";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-
-interface StyleProps {
-  loading: boolean;
-}
-
-const Container = styled.div<StyleProps>`
-  padding-top: 8rem;
-  max-width: 800px;
-  margin: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 20rem;
-    display: block;
-    margin: auto;
-  }
-
-  h1 {
-    margin: 2rem 0;
-  }
-  h2 {
-    margin-bottom: 1.5rem;
-  }
-  h3 {
-    margin-bottom: 3rem;
-  }
-
-  p {
-    margin-top: 2rem;
-  }
-
-  button {
-    border: none;
-    color: white;
-    background-color: #00d0a9;
-    padding: 0.8rem 1.4rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-
-    &:hover {
-      background-color: #008970;
-    }
-  }
-`;
-
-const DescriptionData = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const DescriptionContainer = styled.div`
-  @media ${device.laptop} {
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
-  }
-`;
-
-const Loading = styled.h1`
-  text-align: center;
-`;
-
-const CartIcon = styled(AiOutlineShoppingCart)`
-  color: white;
-  font-size: 1.2rem;
-`;
+import LoadingSpinner from "../../assets/LoadingSpinner";
+import { Products } from "../../ContextProvider";
+import { Context } from "../../ContextProvider";
+import {
+  Container,
+  DescriptionData,
+  DescriptionContainer,
+  CartIcon,
+} from "./ProductDetailsStyles";
 
 const ProductDetails = () => {
   const { id } = useParams();
