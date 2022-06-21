@@ -20,6 +20,9 @@ const OrderContainer = styled.div`
       color: black;
     }
   }
+  h4 {
+    font-size: 1.5rem;
+  }
 
   button {
     padding: 0.8rem 1.6rem;
@@ -52,6 +55,7 @@ const Item = styled.div`
 const ItemsContainer = styled.div`
   overflow-y: scroll;
   height: 35rem;
+  margin-bottom: 1rem;
 `;
 
 const ItemDetails = styled.div`
@@ -62,10 +66,6 @@ const ItemDetails = styled.div`
   h3 {
     font-size: 1rem;
     font-weight: 400;
-
-    &:nth-child(2) {
-      text-align: right;
-    }
   }
 `;
 
@@ -99,7 +99,7 @@ const OrderSummary = () => {
           );
         })}
       </ItemsContainer>
-      <h2>Order Total: $ {totalSum?.toFixed(2)} </h2>
+      <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
       <button>Place Order</button>
     </OrderContainer>
   );
