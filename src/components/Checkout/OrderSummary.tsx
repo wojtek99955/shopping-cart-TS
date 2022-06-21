@@ -162,7 +162,7 @@ const OrderSummary = () => {
                     +
                   </button>
                 </Quantity>
-                <h3>${item.price}</h3>
+                <h3>${(item.amount * item.price).toFixed(2)}</h3>
               </ItemDetails>
             </Item>
           );
