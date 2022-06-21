@@ -23,21 +23,21 @@ const OrderContainer = styled.div`
   h4 {
     font-size: 1.5rem;
   }
+`;
 
-  button {
-    padding: 0.8rem 1.6rem;
-    background-color: #00d0a9;
-    border: none;
-    border-radius: 15px;
-    display: block;
-    margin: auto;
-    margin-top: 1.5rem;
-    color: white;
-    cursor: pointer;
+const OrderButton = styled.button`
+  padding: 0.8rem 1.6rem;
+  background-color: #00d0a9;
+  border: none;
+  border-radius: 15px;
+  display: block;
+  margin: auto;
+  margin-top: 1.5rem;
+  color: white;
+  cursor: pointer;
 
-    &:hover {
-      background-color: #008970;
-    }
+  &:hover {
+    background-color: #008970;
   }
 `;
 
@@ -69,6 +69,22 @@ const ItemDetails = styled.div`
   }
 `;
 
+const Quantity = styled.div`
+  button {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background-color: #00d0a9;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #008970;
+    }
+  }
+`;
 const OrderSummary = () => {
   const ctx = useContext(Context);
   const itemNumber = ctx?.cartList.reduce((accumulator, object) => {
@@ -93,6 +109,11 @@ const OrderSummary = () => {
               <img src={item.image} alt="" />
               <ItemDetails>
                 <h3>{item.title.slice(0, 15)}...</h3>
+                <Quantity>
+                  <button>-</button>
+                  {item.amount}
+                  <button>+</button>
+                </Quantity>
                 <h3>${item.price}</h3>
               </ItemDetails>
             </Item>
@@ -100,7 +121,7 @@ const OrderSummary = () => {
         })}
       </ItemsContainer>
       <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
-      <button>Place Order</button>
+      <OrderButton>Place Order</OrderButton>
     </OrderContainer>
   );
 };
