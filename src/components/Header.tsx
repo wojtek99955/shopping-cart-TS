@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Context } from "../ContextProvider";
 import { useContext } from "react";
-import { Cart } from "./Cart";
+import { Cart } from "./Cart/Cart";
 import { Link } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 

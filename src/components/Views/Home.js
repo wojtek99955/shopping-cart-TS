@@ -1,6 +1,6 @@
 import Header from "../Header";
 import { ProductsList } from "../ProductsList";
-import { Cart } from "../Cart";
+import { Cart } from "../Cart/Cart";
 
 const Home = () => {
   return (
