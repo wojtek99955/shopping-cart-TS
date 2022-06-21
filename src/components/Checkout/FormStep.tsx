@@ -1,6 +1,6 @@
 import React from "react";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
-import OrderSummary from "./OrderSummary";
+import OrderSummary from "./OrderSummary/OrderSummary";
 import Payment from "./Payment";
 import ShippingMethod from "./ShippingMethod";
 import styled from "styled-components";
