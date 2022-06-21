@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./assets/globalStyle";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import { ContextProvider } from "./ContextProvider";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Views/Home";

@@ -1,4 +1,4 @@
-import Header from "../Header";
+import Header from "../Header/Header";
 import { ProductsList } from "../ProductsList";
 import { Cart } from "../Cart/Cart";
 
