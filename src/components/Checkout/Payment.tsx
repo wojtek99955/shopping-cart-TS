@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Title, FormContainer } from "./assets/atoms/CardsStyles";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import { radioValues } from "./assets/interfaces/Interfaces";
 import * as Yup from "yup";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
+import ValidationError from "./assets/ValidationError";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;
@@ -62,6 +63,7 @@ const Payment = ({ step, setStep }: Props) => {
                 Check
               </label>
             </Column>
+            <ErrorMessage name="picked" component={ValidationError} />
             <BtnsContainer>
               <button
                 onClick={() => {
