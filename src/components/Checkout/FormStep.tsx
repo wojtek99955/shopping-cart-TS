@@ -12,7 +12,7 @@ interface Props {
 
 const Container = styled.div`
   padding-top: 8rem;
-  max-width: 20rem;
+  max-width: 30rem;
   margin: auto;
 `;
 
