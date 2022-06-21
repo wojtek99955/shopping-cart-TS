@@ -55,7 +55,7 @@ const Item = styled.div`
 
 const ItemsContainer = styled.div`
   overflow-y: scroll;
-  height: 35rem;
+  max-height: 35rem;
   margin-bottom: 1rem;
 `;
 
