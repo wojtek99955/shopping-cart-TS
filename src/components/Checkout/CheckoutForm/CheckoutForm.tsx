@@ -15,9 +15,10 @@ import {
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
+  setCheckoutData: React.Dispatch<React.SetStateAction<{}>>;
 }
 
-const CheckoutForm = ({ setStep }: Props) => {
+const CheckoutForm = ({ setStep, setCheckoutData }: Props) => {
   const initialValues: FormValues = {
     email: "",
     newsletter: false,
@@ -58,6 +59,7 @@ const CheckoutForm = ({ setStep }: Props) => {
             if (isValidating) {
               setStep((prev) => prev + 1);
             }
+            setCheckoutData(values);
           }}
         >
           <Form>
