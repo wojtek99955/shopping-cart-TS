@@ -11,7 +11,11 @@ import {
   Quantity,
 } from "./OrderSummaryStyles";
 
-const OrderSummary = () => {
+interface Props {
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const OrderSummary = ({ setStep }: Props) => {
   const ctx = useContext(Context);
   const itemNumber = ctx?.cartList.reduce((accumulator, object) => {
     return accumulator + object.amount;
@@ -49,6 +53,10 @@ const OrderSummary = () => {
         }
       }, [] as Products[])
     );
+  };
+
+  const handleNextStep = () => {
+    setStep((prev) => prev + 1);
   };
 
   return (
@@ -89,7 +97,7 @@ const OrderSummary = () => {
         })}
       </ItemsContainer>
       <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
-      <OrderButton>Place Order</OrderButton>
+      <OrderButton onClick={handleNextStep}>Place Order</OrderButton>
     </OrderContainer>
   );
 };
