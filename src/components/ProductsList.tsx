@@ -4,7 +4,7 @@ import { Product } from "./Product";
 import { Context } from "../ContextProvider";
 import { Products } from "../ContextProvider";
 import LoadingSpinner from "../assets/LoadingSpinner";
-import Filter from "./Filter";
+import Filter from "./Filter/Filter";
 import { device } from "../assets/media";
 
 interface StyleProps {
