@@ -1,42 +1,10 @@
 import { useEffect, useContext, useState } from "react";
-import styled from "styled-components";
-import { Product } from "./Product/Product";
-import { Context } from "../ContextProvider";
-import { Products } from "../ContextProvider";
-import LoadingSpinner from "../assets/LoadingSpinner";
-import Filter from "./Filter/Filter";
-import { device } from "../assets/media";
-
-interface StyleProps {
-  loading: boolean;
-}
-
-const Container = styled.div<StyleProps>`
-  max-width: 1000px;
-  margin: auto;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  padding: 8rem 1rem;
-  display: grid;
-
-  @media ${device.tablet} {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media ${device.laptop} {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-  }
-`;
-
-const Wrapper = styled.section`
-  max-width: 1300px;
-  margin: auto;
-
-  @media ${device.laptop} {
-    display: flex;
-  }
-`;
+import { Product } from "../Product/Product";
+import { Context } from "../../ContextProvider";
+import { Products } from "../../ContextProvider";
+import LoadingSpinner from "../../assets/LoadingSpinner";
+import Filter from "../Filter/Filter";
+import { Container, Wrapper } from "./ProductsListStyle";
 
 export const ProductsList: React.FC = () => {
   const ctx = useContext(Context);
