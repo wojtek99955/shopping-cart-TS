@@ -16,13 +16,14 @@ const initialValues: radioValues = {
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
+  setCheckoutData: React.Dispatch<React.SetStateAction<{}>>;
 }
 
 const validationSchema = Yup.object().shape({
   picked: Yup.string().required("A radio option is required"),
 });
 
-const ShippingMethod = ({ setStep }: Props) => {
+const ShippingMethod = ({ setStep, setCheckoutData }: Props) => {
   return (
     <FormContainer>
       <Title>
@@ -36,6 +37,12 @@ const ShippingMethod = ({ setStep }: Props) => {
             if (isValidating) {
               setStep((prev) => prev + 1);
             }
+            setCheckoutData((prev) => {
+              return {
+                ...prev,
+                shipping: values.picked,
+              };
+            });
           }}
           validationSchema={validationSchema}
         >
