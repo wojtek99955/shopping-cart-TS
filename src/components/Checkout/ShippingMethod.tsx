@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { radioValues } from "./assets/interfaces/Interfaces";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
 import * as Yup from "yup";
+import ValidationError from "./assets/ValidationError";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;
@@ -59,6 +60,7 @@ const ShippingMethod = ({ setStep, setCheckoutData }: Props) => {
               <Field type="radio" name="picked" value="DHL" />
               DHL
             </label>
+            <ErrorMessage name="picked" component={ValidationError} />
             <BtnsContainer>
               <button onClick={() => setStep((prev) => prev - 1)}>prev</button>
               <button type="submit">next</button>
