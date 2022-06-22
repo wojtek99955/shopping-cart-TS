@@ -97,7 +97,7 @@ const OrderSummary = ({ setStep }: Props) => {
         })}
       </ItemsContainer>
       <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
-      <OrderButton onClick={handleNextStep}>Place Order</OrderButton>
+      <OrderButton onClick={handleNextStep}>Confirm Data</OrderButton>
     </OrderContainer>
   );
 };
