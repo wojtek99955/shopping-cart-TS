@@ -5,6 +5,7 @@ import Payment from "./Payment";
 import ShippingMethod from "./ShippingMethod";
 import styled from "styled-components";
 import { useState } from "react";
+import ConfirmCheckoutData from "./ConfirmCheckoutData/ConfirmCheckoutData";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -34,12 +35,8 @@ const FormStep = ({ step, setStep }: Props) => {
       {step === 3 && (
         <ShippingMethod setStep={setStep} setCheckoutData={setCheckoutData} />
       )}
-      {step === 4 && (
-        <OrderSummary
-          setCheckoutData={setCheckoutData}
-          checkoutData={checkoutData}
-        />
-      )}
+      {step === 4 && <OrderSummary setStep={setStep} />}
+      {step === 5 && <ConfirmCheckoutData />}
     </Container>
   );
 };
