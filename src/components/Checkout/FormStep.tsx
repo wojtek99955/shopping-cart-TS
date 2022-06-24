@@ -25,14 +25,19 @@ const Container = styled.div`
 const Line = styled.div<StyleProps>`
   height: 0.3rem;
   background-color: #e2e2e3;
-  width: 15%;
+  width: 4rem;
+
+  &:last-of-type {
+    &:last-child {
+      background-color: ${({ step }) => step >= 4 && "#00d0a9"};
+    }
+  }
 `;
 
 const CurrentStep = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
 `;
 const StepName = styled.div<StyleProps>`
   width: 1.5rem;
@@ -45,19 +50,53 @@ const StepName = styled.div<StyleProps>`
   align-items: center;
 `;
 
+const StepContainer = styled.div<StyleProps>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.2rem;
+
+  &:nth-of-type(1) {
+    ${Line} {
+      background-color: ${({ step }) => step >= 1 && "#00d0a9"};
+    }
+  }
+  &:nth-of-type(2) {
+    ${Line} {
+      background-color: ${({ step }) => step >= 2 && "#00d0a9"};
+    }
+  }
+  &:nth-of-type(3) {
+    ${Line} {
+      background-color: ${({ step }) => step >= 3 && "#00d0a9"};
+    }
+  }
+  &:nth-of-type(4) {
+    ${Line} {
+      background-color: ${({ step }) => step === 4 && "#00d0a9"};
+    }
+  }
+  &:last-child {
+    ${Line} {
+      background-color: ${({ step }) => step === 4 && "#00d0a9"};
+    }
+  }
+`;
+
 const FormStep = ({ step, setStep }: Props) => {
   const [checkoutData, setCheckoutData] = useState({});
   const stepNumber = [1, 2, 3, 4];
+  console.log(step);
 
   return (
     <Container>
       <CurrentStep>
         {stepNumber.map((stepNumber) => {
           return (
-            <>
+            <StepContainer key={stepNumber} step={step}>
               <Line step={step} />
               <StepName step={step}>{stepNumber}</StepName>
-            </>
+            </StepContainer>
           );
         })}
         <Line step={step} />
