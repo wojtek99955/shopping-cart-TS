@@ -6,7 +6,7 @@ interface StyleProps {
 
 export const Container = styled.div`
   padding-top: 8rem;
-  max-width: 30rem;
+  max-width: 33rem;
   margin: auto;
 `;
 
@@ -25,6 +25,7 @@ export const Line = styled.div<StyleProps>`
 export const CurrentStep = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   align-items: center;
   margin-bottom: 3rem;
 `;
