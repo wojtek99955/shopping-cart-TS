@@ -24,10 +24,11 @@ export const Line = styled.div<StyleProps>`
 
 export const CurrentStep = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 0rem;
   align-items: center;
   margin-bottom: 3rem;
+  justify-content: center;
+  gap: 0.5rem;
 `;
 export const StepName = styled.div<StyleProps>`
   width: 1.5rem;
@@ -44,7 +45,7 @@ export const StepContainer = styled.div<StyleProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.5rem;
 
   &:nth-of-type(1) {
     ${Line} {
