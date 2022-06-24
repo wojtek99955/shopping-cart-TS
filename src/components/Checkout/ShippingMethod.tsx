@@ -33,7 +33,7 @@ const ShippingMethod = ({ setStep, setCheckoutData }: Props) => {
     <FormContainer>
       <Title>
         <span>3</span>
-        <h1>Shipping Methods</h1>
+        <h1>Shipping Method</h1>
       </Title>
       <FormWrapper>
         <Formik
