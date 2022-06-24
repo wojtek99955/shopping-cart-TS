@@ -12,19 +12,56 @@ interface Props {
   step: number;
 }
 
+interface StyleProps {
+  step: number;
+}
+
 const Container = styled.div`
   padding-top: 8rem;
   max-width: 30rem;
   margin: auto;
 `;
 
-const CurrentStep = styled.div``;
+const Line = styled.div<StyleProps>`
+  height: 0.3rem;
+  background-color: #e2e2e3;
+  width: 15%;
+`;
+
+const CurrentStep = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+`;
+const StepName = styled.div<StyleProps>`
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: #e2e2e3;
+  color: #00d0a9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const FormStep = ({ step, setStep }: Props) => {
   const [checkoutData, setCheckoutData] = useState({});
+  const stepNumber = [1, 2, 3, 4];
+
   return (
     <Container>
-      <CurrentStep></CurrentStep>
+      <CurrentStep>
+        {stepNumber.map((stepNumber) => {
+          return (
+            <>
+              <Line step={step} />
+              <StepName step={step}>{stepNumber}</StepName>
+            </>
+          );
+        })}
+        <Line step={step} />
+      </CurrentStep>
 
       {step === 1 && (
         <CheckoutForm setStep={setStep} setCheckoutData={setCheckoutData} />
