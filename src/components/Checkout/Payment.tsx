@@ -13,6 +13,10 @@ const FormWrapper = styled.div`
 
 const Column = styled.div``;
 
+const StyledField = styled(Field)`
+  cursor: pointer;
+`;
+
 const initialValues: radioValues = {
   picked: "",
 };
@@ -52,19 +56,23 @@ const Payment = ({ setStep, setCheckoutData }: Props) => {
           <Form>
             <Column>
               <label>
-                <Field type="radio" name="picked" value="Cash On Delivery" />
+                <StyledField
+                  type="radio"
+                  name="picked"
+                  value="Cash On Delivery"
+                />
                 Cash On Delivery
               </label>
             </Column>
             <Column>
               <label>
-                <Field type="radio" name="picked" value="Bank Transfer" />
+                <StyledField type="radio" name="picked" value="Bank Transfer" />
                 Bank Transfer
               </label>
             </Column>
             <Column>
               <label>
-                <Field type="radio" name="picked" value="Check" />
+                <StyledField type="radio" name="picked" value="Check" />
                 Check
               </label>
             </Column>
