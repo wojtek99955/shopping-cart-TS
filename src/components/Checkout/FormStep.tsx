@@ -38,6 +38,7 @@ const CurrentStep = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3rem;
 `;
 const StepName = styled.div<StyleProps>`
   width: 1.5rem;
