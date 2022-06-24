@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../assets/media";
 import { useState } from "react";
-import FormStep from "./FormStep";
+import FormStep from "./FormStep/FormStep";
 
 const Wrapper = styled.section`
   max-width: 800px;
