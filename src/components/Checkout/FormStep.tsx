@@ -60,25 +60,36 @@ const StepContainer = styled.div<StyleProps>`
     ${Line} {
       background-color: ${({ step }) => step >= 1 && "#00d0a9"};
     }
+    ${StepName} {
+      background-color: ${({ step }) => step >= 1 && "#00d0a9"};
+      color: ${({ step }) => step >= 1 && "white"};
+    }
   }
   &:nth-of-type(2) {
     ${Line} {
       background-color: ${({ step }) => step >= 2 && "#00d0a9"};
+    }
+    ${StepName} {
+      background-color: ${({ step }) => step >= 2 && "#00d0a9"};
+      color: ${({ step }) => step >= 2 && "white"};
     }
   }
   &:nth-of-type(3) {
     ${Line} {
       background-color: ${({ step }) => step >= 3 && "#00d0a9"};
     }
+    ${StepName} {
+      background-color: ${({ step }) => step >= 3 && "#00d0a9"};
+      color: ${({ step }) => step >= 3 && "white"};
+    }
   }
   &:nth-of-type(4) {
     ${Line} {
       background-color: ${({ step }) => step === 4 && "#00d0a9"};
     }
-  }
-  &:last-child {
-    ${Line} {
-      background-color: ${({ step }) => step === 4 && "#00d0a9"};
+    ${StepName} {
+      background-color: ${({ step }) => step >= 4 && "#00d0a9"};
+      color: ${({ step }) => step >= 4 && "white"};
     }
   }
 `;
