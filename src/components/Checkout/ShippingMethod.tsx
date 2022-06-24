@@ -11,6 +11,10 @@ const FormWrapper = styled.div`
   padding-top: 1rem;
 `;
 
+const StyledField = styled(Field)`
+  cursor: pointer;
+`;
+
 const initialValues: radioValues = {
   picked: "",
 };
@@ -49,15 +53,15 @@ const ShippingMethod = ({ setStep, setCheckoutData }: Props) => {
         >
           <Form>
             <label>
-              <Field type="radio" name="picked" value="UPS" />
+              <StyledField type="radio" name="picked" value="UPS" />
               UPS
             </label>
             <label>
-              <Field type="radio" name="picked" value="FedEx" />
+              <StyledField type="radio" name="picked" value="FedEx" />
               FedEx
             </label>
             <label>
-              <Field type="radio" name="picked" value="DHL" />
+              <StyledField type="radio" name="picked" value="DHL" />
               DHL
             </label>
             <ErrorMessage name="picked" component={ValidationError} />
