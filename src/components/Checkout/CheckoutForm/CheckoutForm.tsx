@@ -12,10 +12,13 @@ import {
   StyledField,
   FormContainer,
 } from "./CheckoutFormStyles";
+import { CheckoutDataTypes } from "../FormStep/FormStep";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
-  setCheckoutData: React.Dispatch<React.SetStateAction<{}>>;
+  setCheckoutData: React.Dispatch<
+    React.SetStateAction<CheckoutDataTypes | undefined>
+  >;
 }
 
 const CheckoutForm = ({ setStep, setCheckoutData }: Props) => {
@@ -59,7 +62,15 @@ const CheckoutForm = ({ setStep, setCheckoutData }: Props) => {
             if (isValidating) {
               setStep((prev) => prev + 1);
             }
-            setCheckoutData(values);
+            setCheckoutData({
+              email: values.email,
+              fitstName: values.firstName,
+              lastName: values.lastName,
+              address: values.address,
+              zip: values.zip,
+              city: values.city,
+              country: values.country,
+            });
           }}
         >
           <Form>
