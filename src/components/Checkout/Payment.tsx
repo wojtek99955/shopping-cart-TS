@@ -23,20 +23,38 @@ const StyledField = styled(Field)`
   cursor: pointer;
 `;
 
+const CardContainer = styled.div`
+  max-width: 20rem;
+`;
+
 const TextField = styled(Field)`
   border-radius: 0;
+  width: 50%;
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 20px;
+`;
+
+const ExpirationDate = styled.div`
+  display: flex;
+  gap: 0.5rem;
 `;
 
 interface initialValuesTypes {
   picked: string;
   cardNumber: string;
-
+  expirationMonth: string;
+  expirationYear: string;
   cvc: string;
 }
 
 const initialValues: initialValuesTypes = {
   picked: "",
   cardNumber: "",
+  expirationMonth: "",
+  expirationYear: "",
   cvc: "",
 };
 
@@ -51,6 +69,8 @@ interface Props {
 const validationSchema = Yup.object().shape({
   picked: Yup.string().required("A radio option is required"),
   cardNumber: Yup.string().required("required"),
+  expirationMonth: Yup.string().required("required"),
+  expirationYear: Yup.string().required("required"),
 });
 
 const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
@@ -95,11 +115,27 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                 </StyledRadioLabel>
               </Column>
               {values.picked === "Card" ? (
-                <TextField
-                  type="text"
-                  name="cardNumber"
-                  placeholder="card number"
-                />
+                <CardContainer>
+                  <Column>
+                    <TextField
+                      type="text"
+                      name="cardNumber"
+                      placeholder="card number"
+                    />
+                  </Column>
+                  <ExpirationDate>
+                    <TextField
+                      type="text"
+                      name="expirationMonth"
+                      placeholder="expiration month"
+                    />
+                    <TextField
+                      type="text"
+                      name="expirationYear"
+                      placeholder="expiration year"
+                    />
+                  </ExpirationDate>
+                </CardContainer>
               ) : null}
               <Column>
                 <StyledRadioLabel>
