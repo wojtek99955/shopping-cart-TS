@@ -154,7 +154,6 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                 </button>
                 <button type="submit">next</button>
               </BtnsContainer>
-              <h2>ff</h2>
             </Form>
           )}
         </Formik>
