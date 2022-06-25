@@ -44,9 +44,18 @@ interface Props {
 
 const validationSchema = Yup.object().shape({
   picked: Yup.string().required("A radio option is required"),
-  cardNumber: Yup.string().required("required"),
-  expirationMonth: Yup.string().required("required"),
-  expirationYear: Yup.string().required("required"),
+  cardNumber: Yup.string().when("picked", {
+    is: "Card",
+    then: Yup.string().required("required"),
+  }),
+  expirationMonth: Yup.string().when("picked", {
+    is: "Card",
+    then: Yup.string().required("required"),
+  }),
+  expirationYear: Yup.string().when("picked", {
+    is: "Card",
+    then: Yup.string().required("required"),
+  }),
 });
 
 const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
