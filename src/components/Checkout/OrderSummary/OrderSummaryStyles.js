@@ -36,6 +36,10 @@ export const OrderButton = styled.button`
   &:hover {
     background-color: #008970;
   }
+  &:disabled {
+    background-color: rgba(0, 208, 169, 0.4);
+    cursor: default;
+  }
 `;
 
 export const Item = styled.div`
