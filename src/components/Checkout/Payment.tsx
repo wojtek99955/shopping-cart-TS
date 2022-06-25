@@ -42,6 +42,8 @@ const ExpirationDate = styled.div`
   gap: 0.5rem;
 `;
 
+const ExpirationData = styled.div``;
+
 interface initialValuesTypes {
   picked: string;
   cardNumber: string;
@@ -122,18 +124,34 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       name="cardNumber"
                       placeholder="card number"
                     />
+                    <ErrorMessage
+                      name="cardNumber"
+                      component={ValidationError}
+                    />
                   </Column>
                   <ExpirationDate>
-                    <TextField
-                      type="text"
-                      name="expirationMonth"
-                      placeholder="expiration month"
-                    />
-                    <TextField
-                      type="text"
-                      name="expirationYear"
-                      placeholder="expiration year"
-                    />
+                    <ExpirationData>
+                      <TextField
+                        type="text"
+                        name="expirationMonth"
+                        placeholder="expiration month"
+                      />
+                      <ErrorMessage
+                        name="expirationMonth"
+                        component={ValidationError}
+                      />
+                    </ExpirationData>
+                    <ExpirationData>
+                      <TextField
+                        type="text"
+                        name="expirationYear"
+                        placeholder="expiration year"
+                      />
+                      <ErrorMessage
+                        name="expirationYear"
+                        component={ValidationError}
+                      />
+                    </ExpirationData>
                   </ExpirationDate>
                 </CardContainer>
               ) : null}
