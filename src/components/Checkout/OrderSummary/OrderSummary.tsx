@@ -65,38 +65,44 @@ const OrderSummary = ({ setStep }: Props) => {
         <span>4</span>
         <h1>Order Summary</h1>
       </Title>
-      <h2>{itemNumber} items in cart</h2>
-      <ItemsContainer>
-        {ctx?.cartList.map((item) => {
-          return (
-            <Item>
-              <img src={item.image} alt="" />
-              <ItemDetails>
-                <h3>{item.title.slice(0, 15)}...</h3>
-                <Quantity>
-                  <button
-                    onClick={() => {
-                      removeQuantity(item.id);
-                    }}
-                  >
-                    -
-                  </button>
-                  {item.amount}
-                  <button
-                    onClick={() => {
-                      addQuantity(item);
-                    }}
-                  >
-                    +
-                  </button>
-                </Quantity>
-                <h3>${(item.amount * item.price).toFixed(2)}</h3>
-              </ItemDetails>
-            </Item>
-          );
-        })}
-      </ItemsContainer>
-      <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
+      {ctx?.cartList && ctx.cartList.length > 0 ? (
+        <>
+          <h2>{itemNumber} items in cart</h2>
+          <ItemsContainer>
+            {ctx.cartList.map((item) => {
+              return (
+                <Item>
+                  <img src={item.image} alt="" />
+                  <ItemDetails>
+                    <h3>{item.title.slice(0, 15)}...</h3>
+                    <Quantity>
+                      <button
+                        onClick={() => {
+                          removeQuantity(item.id);
+                        }}
+                      >
+                        -
+                      </button>
+                      {item.amount}
+                      <button
+                        onClick={() => {
+                          addQuantity(item);
+                        }}
+                      >
+                        +
+                      </button>
+                    </Quantity>
+                    <h3>${(item.amount * item.price).toFixed(2)}</h3>
+                  </ItemDetails>
+                </Item>
+              );
+            })}
+          </ItemsContainer>
+          <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
+        </>
+      ) : (
+        <h3>There is no items</h3>
+      )}
       <OrderButton onClick={handleNextStep}>Confirm Data</OrderButton>
     </OrderContainer>
   );
