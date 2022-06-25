@@ -103,7 +103,12 @@ const OrderSummary = ({ setStep }: Props) => {
       ) : (
         <h3>There is no items</h3>
       )}
-      <OrderButton onClick={handleNextStep}>Confirm Data</OrderButton>
+      <OrderButton
+        onClick={handleNextStep}
+        disabled={ctx?.cartList.length === 0}
+      >
+        Confirm Data
+      </OrderButton>
     </OrderContainer>
   );
 };
