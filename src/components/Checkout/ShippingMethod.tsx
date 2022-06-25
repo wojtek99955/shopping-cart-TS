@@ -1,11 +1,17 @@
 import React from "react";
-import { Title, FormContainer } from "./assets/atoms/CardsStyles";
+import {
+  Title,
+  FormContainer,
+  RadioInput,
+  StyledRadioLabel,
+} from "./assets/atoms/CardsStyles";
 import styled from "styled-components";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { radioValues } from "./assets/interfaces/Interfaces";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
 import * as Yup from "yup";
 import ValidationError from "./assets/ValidationError";
+import { CheckoutDataTypes } from "./FormStep/FormStep";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;
@@ -21,7 +27,9 @@ const initialValues: radioValues = {
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
-  setCheckoutData: React.Dispatch<React.SetStateAction<{}>>;
+  setCheckoutData: React.Dispatch<
+    React.SetStateAction<CheckoutDataTypes | undefined>
+  >;
 }
 
 const validationSchema = Yup.object().shape({
@@ -52,18 +60,18 @@ const ShippingMethod = ({ setStep, setCheckoutData }: Props) => {
           validationSchema={validationSchema}
         >
           <Form>
-            <label>
-              <StyledField type="radio" name="picked" value="UPS" />
+            <StyledRadioLabel>
+              <RadioInput type="radio" name="picked" value="UPS" />
               UPS
-            </label>
-            <label>
-              <StyledField type="radio" name="picked" value="FedEx" />
+            </StyledRadioLabel>
+            <StyledRadioLabel>
+              <RadioInput type="radio" name="picked" value="FedEx" />
               FedEx
-            </label>
-            <label>
-              <StyledField type="radio" name="picked" value="DHL" />
+            </StyledRadioLabel>
+            <StyledRadioLabel>
+              <RadioInput type="radio" name="picked" value="DHL" />
               DHL
-            </label>
+            </StyledRadioLabel>
             <ErrorMessage name="picked" component={ValidationError} />
             <BtnsContainer>
               <button onClick={() => setStep((prev) => prev - 1)}>prev</button>
