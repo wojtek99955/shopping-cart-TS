@@ -89,7 +89,7 @@ export const StepContainer = styled.div<StyleProps>`
   }
   &:nth-of-type(4) {
     ${Line} {
-      background-color: ${({ step }) => step === 4 && "#00d0a9"};
+      background-color: ${({ step }) => step >= 4 && "#00d0a9"};
     }
     ${StepName} {
       background-color: ${({ step }) => step >= 4 && "#00d0a9"};
