@@ -1,3 +1,4 @@
+import { device } from "./../../../assets/media";
 import styled from "styled-components";
 
 interface StyleProps {
@@ -13,12 +14,20 @@ export const Container = styled.div`
 export const Line = styled.div<StyleProps>`
   height: 0.3rem;
   background-color: #e2e2e3;
-  width: 4rem;
+  display: none;
 
   &:last-of-type {
     &:last-child {
       background-color: ${({ step }) => step >= 4 && "#00d0a9"};
     }
+  }
+
+  @media ${device.mobileL} {
+    display: block;
+    width: 2rem;
+  }
+  @media ${device.tablet} {
+    width: 4rem;
   }
 `;
 
