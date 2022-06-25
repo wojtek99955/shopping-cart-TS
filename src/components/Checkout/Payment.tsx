@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import {
   Title,
@@ -7,7 +6,6 @@ import {
   StyledRadioLabel,
 } from "./assets/atoms/CardsStyles";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { radioValues } from "./assets/interfaces/Interfaces";
 import * as Yup from "yup";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
 import ValidationError from "./assets/ValidationError";
@@ -18,10 +16,6 @@ const FormWrapper = styled.div`
 `;
 
 const Column = styled.div``;
-
-const StyledField = styled(Field)`
-  cursor: pointer;
-`;
 
 const CardContainer = styled.div`
   max-width: 20rem;
