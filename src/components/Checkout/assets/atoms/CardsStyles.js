@@ -1,45 +1,46 @@
 import styled from "styled-components";
+import { Field } from "formik";
 
 export const FormContainer = styled.div`
   width: 100%;
   box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
   border-radius: 15px;
   padding: 1rem;
+`;
 
-  label {
-    margin-bottom: 0.5rem;
-    display: block;
+export const StyledRadioLabel = styled.label`
+  margin-bottom: 0.5rem;
+  display: block;
+`;
+
+export const RadioInput = styled(Field)`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid grey;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: #ccfff5;
   }
 
-  input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid grey;
+  &:checked::after {
+    content: "";
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
-    position: relative;
-    margin-right: 0.5rem;
-    display: inline-block;
-    vertical-align: middle;
-
-    &:hover {
-      background-color: #ccfff5;
-    }
-
-    &:checked::after {
-      content: "";
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background-color: #008970;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
+    background-color: #008970;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
