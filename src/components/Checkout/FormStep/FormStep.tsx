@@ -1,7 +1,7 @@
 import React from "react";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import OrderSummary from "../OrderSummary/OrderSummary";
-import Payment from "../Payment";
+import Payment from "../Payment/Payment";
 import ShippingMethod from "../ShippingMethod";
 import { useState } from "react";
 import ConfirmCheckoutData from "../ConfirmCheckoutData/ConfirmCheckoutData";

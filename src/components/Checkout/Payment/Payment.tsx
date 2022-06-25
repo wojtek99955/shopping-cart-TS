@@ -1,42 +1,22 @@
-import styled from "styled-components";
 import {
   Title,
   FormContainer,
   RadioInput,
   StyledRadioLabel,
-} from "./assets/atoms/CardsStyles";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+} from "../assets/atoms/CardsStyles";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { BtnsContainer } from "./assets/atoms/CardsStyles";
-import ValidationError from "./assets/ValidationError";
-import { CheckoutDataTypes } from "./FormStep/FormStep";
-
-const FormWrapper = styled.div`
-  padding-top: 1rem;
-`;
-
-const Column = styled.div``;
-
-const CardContainer = styled.div`
-  max-width: 20rem;
-`;
-
-const TextField = styled(Field)`
-  border-radius: 0;
-  width: 50%;
-  width: 100%;
-  border: 1px solid #d0d0d0;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border-radius: 20px;
-`;
-
-const ExpirationDate = styled.div`
-  display: flex;
-  gap: 0.5rem;
-`;
-
-const ExpirationData = styled.div``;
+import { BtnsContainer } from "../assets/atoms/CardsStyles";
+import ValidationError from "../assets/ValidationError";
+import { CheckoutDataTypes } from "../FormStep/FormStep";
+import {
+  FormWrapper,
+  Column,
+  CardContainer,
+  TextField,
+  ExpirationDate,
+  ExpirationData,
+} from "./PaymentStyles";
 
 interface initialValuesTypes {
   picked: string;
