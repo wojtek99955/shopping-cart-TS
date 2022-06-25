@@ -19,8 +19,21 @@ interface Props {
   step: number;
 }
 
+export interface CheckoutDataTypes {
+  email?: string;
+  fitstName?: string;
+  lastName?: string;
+  address?: string;
+  zip?: string;
+  city?: string;
+  country?: string;
+  newsletter?: boolean;
+  payment?: string;
+  shipping?: string;
+}
+
 const FormStep = ({ step, setStep }: Props) => {
-  const [checkoutData, setCheckoutData] = useState({});
+  const [checkoutData, setCheckoutData] = useState<CheckoutDataTypes>();
   const stepNumber = [1, 2, 3, 4];
   console.log(step);
 
@@ -43,7 +56,11 @@ const FormStep = ({ step, setStep }: Props) => {
           <CheckoutForm setStep={setStep} setCheckoutData={setCheckoutData} />
         )}
         {step === 2 && (
-          <Payment setStep={setStep} setCheckoutData={setCheckoutData} />
+          <Payment
+            setStep={setStep}
+            setCheckoutData={setCheckoutData}
+            checkoutData={checkoutData}
+          />
         )}
         {step === 3 && (
           <ShippingMethod setStep={setStep} setCheckoutData={setCheckoutData} />
