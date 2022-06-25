@@ -11,6 +11,7 @@ import {
   CurrentStep,
   StepName,
   StepContainer,
+  Wrapper,
 } from "./FormStepStyles";
 
 interface Props {
@@ -24,31 +25,33 @@ const FormStep = ({ step, setStep }: Props) => {
   console.log(step);
 
   return (
-    <Container>
-      <CurrentStep>
-        {stepNumber.map((stepNumber) => {
-          return (
-            <StepContainer key={stepNumber} step={step}>
-              <Line step={step} />
-              <StepName step={step}>{stepNumber}</StepName>
-            </StepContainer>
-          );
-        })}
-        <Line step={step} />
-      </CurrentStep>
+    <Wrapper>
+      <Container>
+        <CurrentStep>
+          {stepNumber.map((stepNumber) => {
+            return (
+              <StepContainer key={stepNumber} step={step}>
+                <Line step={step} />
+                <StepName step={step}>{stepNumber}</StepName>
+              </StepContainer>
+            );
+          })}
+          <Line step={step} />
+        </CurrentStep>
 
-      {step === 1 && (
-        <CheckoutForm setStep={setStep} setCheckoutData={setCheckoutData} />
-      )}
-      {step === 2 && (
-        <Payment setStep={setStep} setCheckoutData={setCheckoutData} />
-      )}
-      {step === 3 && (
-        <ShippingMethod setStep={setStep} setCheckoutData={setCheckoutData} />
-      )}
-      {step === 4 && <OrderSummary setStep={setStep} />}
-      {step === 5 && <ConfirmCheckoutData />}
-    </Container>
+        {step === 1 && (
+          <CheckoutForm setStep={setStep} setCheckoutData={setCheckoutData} />
+        )}
+        {step === 2 && (
+          <Payment setStep={setStep} setCheckoutData={setCheckoutData} />
+        )}
+        {step === 3 && (
+          <ShippingMethod setStep={setStep} setCheckoutData={setCheckoutData} />
+        )}
+        {step === 4 && <OrderSummary setStep={setStep} />}
+        {step === 5 && <ConfirmCheckoutData />}
+      </Container>
+    </Wrapper>
   );
 };
 

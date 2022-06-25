@@ -5,6 +5,10 @@ interface StyleProps {
   step: number;
 }
 
+export const Wrapper = styled.section`
+  padding: 0 1rem;
+`;
+
 export const Container = styled.div`
   padding-top: 8rem;
   max-width: 33rem;
