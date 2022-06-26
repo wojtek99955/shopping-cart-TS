@@ -81,7 +81,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
             });
           }}
         >
-          {({ handleChange, touched, values }) => (
+          {({ values }) => (
             <Form>
               <Column>
                 <StyledRadioLabel>
