@@ -12,7 +12,7 @@ import {
   StyledField,
   FormContainer,
 } from "./CheckoutFormStyles";
-import { CheckoutDataTypes } from "../FormStep/FormStep";
+import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;

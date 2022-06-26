@@ -13,23 +13,11 @@ import {
   StepContainer,
   Wrapper,
 } from "./FormStepStyles";
+import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   step: number;
-}
-
-export interface CheckoutDataTypes {
-  email?: string;
-  fitstName?: string;
-  lastName?: string;
-  address?: string;
-  zip?: string;
-  city?: string;
-  country?: string;
-  newsletter?: boolean;
-  payment?: string;
-  shipping?: string;
 }
 
 const FormStep = ({ step, setStep }: Props) => {

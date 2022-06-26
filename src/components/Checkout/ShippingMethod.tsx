@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Title,
   FormContainer,
@@ -11,7 +10,7 @@ import { radioValues } from "./assets/interfaces/Interfaces";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
 import * as Yup from "yup";
 import ValidationError from "./assets/ValidationError";
-import { CheckoutDataTypes } from "./FormStep/FormStep";
+import { CheckoutDataTypes } from "./assets/interfaces/Interfaces";
 
 const FormWrapper = styled.div`
   padding-top: 1rem;

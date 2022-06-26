@@ -8,7 +8,7 @@ import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { BtnsContainer } from "../assets/atoms/CardsStyles";
 import ValidationError from "../assets/ValidationError";
-import { CheckoutDataTypes } from "../FormStep/FormStep";
+import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
 import {
   FormWrapper,
   Column,
