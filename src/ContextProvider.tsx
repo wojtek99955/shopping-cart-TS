@@ -16,7 +16,7 @@ export type Products = {
   liked: boolean;
 };
 
-type openCartType = {
+type contextType = {
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
   productsList: Products[];
@@ -27,7 +27,7 @@ type openCartType = {
   setLikedItem: React.Dispatch<React.SetStateAction<Products[]>>;
 };
 
-export const Context = createContext<openCartType | null>(null);
+export const Context = createContext<contextType | null>(null);
 export const ContextProvider = ({ children }: ContextType) => {
   const [openCart, setOpenCart] = useState<boolean>(false);
   const [productsList, setProductsList] = useState<Array<Products>>([]);
