@@ -91,3 +91,13 @@ export const Quantity = styled.div`
     }
   }
 `;
+
+export const NoItemContainer = styled.div`
+  h3 {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  p {
+    text-align: center;
+  }
+`;
