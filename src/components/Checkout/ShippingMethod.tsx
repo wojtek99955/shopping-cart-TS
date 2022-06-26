@@ -6,7 +6,7 @@ import {
   StyledRadioLabel,
 } from "./assets/atoms/CardsStyles";
 import styled from "styled-components";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { radioValues } from "./assets/interfaces/Interfaces";
 import { BtnsContainer } from "./assets/atoms/CardsStyles";
 import * as Yup from "yup";
