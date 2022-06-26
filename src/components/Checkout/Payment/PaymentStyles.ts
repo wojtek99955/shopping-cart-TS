@@ -8,7 +8,7 @@ export const FormWrapper = styled.div`
 export const Column = styled.div``;
 
 export const CardContainer = styled.div`
-  max-width: 20rem;
+  max-width: 15rem;
 `;
 
 export const TextField = styled(Field)`
