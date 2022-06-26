@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../../ContextProvider";
 import { Title } from "../assets/atoms/CardsStyles";
 import { Products } from "../../../ContextProvider";
+import { useNavigate } from "react-router-dom";
 import {
   OrderContainer,
   OrderButton,
@@ -9,6 +10,7 @@ import {
   ItemsContainer,
   ItemDetails,
   Quantity,
+  NoItemContainer,
 } from "./OrderSummaryStyles";
 
 interface Props {
@@ -59,6 +61,27 @@ const OrderSummary = ({ setStep }: Props) => {
     setStep((prev) => prev + 1);
   };
 
+  let navigate = useNavigate();
+  const [counter, setCounter] = useState(3);
+  useEffect(() => {
+    let timer = setInterval(
+      () =>
+        ctx?.cartList.length === 0 &&
+        counter > 0 &&
+        setCounter((prev) => prev - 1),
+      1000
+    );
+    let redirect = setTimeout(
+      () => ctx?.cartList.length === 0 && navigate("/"),
+      2000
+    );
+
+    return () => {
+      clearTimeout(redirect);
+      clearInterval(timer);
+    };
+  });
+
   return (
     <OrderContainer>
       <Title>
@@ -101,7 +124,11 @@ const OrderSummary = ({ setStep }: Props) => {
           <h4>Order Total: $ {totalSum?.toFixed(2)}</h4>
         </>
       ) : (
-        <h3>There is no items</h3>
+        <NoItemContainer>
+          <h3>There is no items</h3>
+          <p>Redirecting to the shop</p>
+          <p>{counter}</p>
+        </NoItemContainer>
       )}
       <OrderButton
         onClick={handleNextStep}
