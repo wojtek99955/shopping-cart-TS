@@ -25,3 +25,11 @@ export interface CheckoutDataTypes {
   payment?: string;
   shipping?: string;
 }
+
+export interface initialValuesTypes {
+  picked: string;
+  cardNumber: string;
+  expirationMonth: string;
+  expirationYear: string;
+  cvc: string;
+}

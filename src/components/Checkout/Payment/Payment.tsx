@@ -17,14 +17,7 @@ import {
   ExpirationDate,
   ExpirationData,
 } from "./PaymentStyles";
-
-interface initialValuesTypes {
-  picked: string;
-  cardNumber: string;
-  expirationMonth: string;
-  expirationYear: string;
-  cvc: string;
-}
+import { initialValuesTypes } from "../assets/interfaces/Interfaces";
 
 const initialValues: initialValuesTypes = {
   picked: "",
