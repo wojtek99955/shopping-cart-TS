@@ -17,10 +17,6 @@ const FormWrapper = styled.div`
   padding-top: 1rem;
 `;
 
-const StyledField = styled(Field)`
-  cursor: pointer;
-`;
-
 const initialValues: radioValues = {
   picked: "",
 };
