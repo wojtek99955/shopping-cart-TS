@@ -1,11 +1,8 @@
-import styled from "styled-components";
 import { useState, useContext, useEffect } from "react";
 import { Context } from "../../ContextProvider";
-import { Formik, Field, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import { radioValues } from "../Checkout/assets/interfaces/Interfaces";
 import { Products } from "../../ContextProvider";
-import { device } from "../../assets/media";
-import { IoIosArrowDropdownCircle } from "react-icons/io";
 import {
   Container,
   Row,
@@ -25,7 +22,7 @@ const initialValues: radioValues = {
   picked: "",
 };
 
-const Filter = ({ loading, setLoading }: Props) => {
+const Filter = ({ setLoading }: Props) => {
   const [category, setCategory] = useState<null | string>(null);
   console.log(category + "category");
 
