@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
 import { BtnsContainer } from "../assets/atoms/CardsStyles";
 import { device } from "../../../assets/media";
+import { Context } from "../../../ContextProvider";
+import { useContext } from "react";
 
 type Props = {
   checkoutData: CheckoutDataTypes | undefined;
@@ -48,6 +50,7 @@ const Title = styled.h2`
 `;
 
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
+  const ctx = useContext(Context);
   return (
     <>
       <Title>Order Confirmation</Title>
