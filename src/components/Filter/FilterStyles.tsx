@@ -59,11 +59,9 @@ export const StyledRadio = styled(Field)`
 
 export const Wrapper = styled.div`
   width: 13rem;
-  border: 1px solid grey;
   padding: 0.5rem;
 
   @media ${device.laptop} {
-    border: none;
     width: 11rem;
   }
 `;
