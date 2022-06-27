@@ -56,14 +56,21 @@ const ItemContainer = styled.div`
     height: 7rem;
     object-fit: contain;
   }
+  strong {
+    font-size: 1.2rem;
+  }
 `;
 
 const ItemDescription = styled.div`
   display: flex;
   flex-direction: column;
 
-  h3 {
-    font-size: 1.2rem;
+  span {
+    font-size: 1rem;
+    &:first-child {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
   }
   p {
     font-size: 1rem;
@@ -76,6 +83,18 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding: 1rem 0;
 `;
+
+const StyledButton = styled.button`
+  background-color: #00d0a9;
+  border: none;
+  border-radius: 15px;
+  padding: 1rem 3.6rem;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+`;
+
+const TotalCost = styled.div``;
 
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
   const ctx = useContext(Context);
@@ -113,7 +132,6 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
         </Data>
         <BtnsContainer>
           <button onClick={() => setStep((prev) => prev - 1)}>Back</button>
-          <button>Place Order</button>
         </BtnsContainer>
       </DataContainer>
       <CartItems>
@@ -123,17 +141,20 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
               <Wrapper>
                 <img src={item.image} alt={item.title} />
                 <ItemDescription>
-                  <h3>{item.title.slice(0, 15)}...</h3>
-                  <p>{item.description.slice(0, 15)}...</p>
+                  <span>{item.title.slice(0, 15)}...</span>
+                  <span>{item.description.slice(0, 15)}...</span>
                 </ItemDescription>
                 <p>{item.amount}</p>
-                <p>$ {item.price}</p>
+                <strong>$ {item.price}</strong>
               </Wrapper>
               <hr />
             </ItemContainer>
           );
         })}
       </CartItems>
+      <TotalCost>
+        <StyledButton>Place Order</StyledButton>
+      </TotalCost>
     </>
   );
 };
