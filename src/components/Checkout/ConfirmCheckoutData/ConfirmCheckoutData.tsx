@@ -131,6 +131,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
             <hr />
             <p>Name: {checkoutData?.fitstName}</p>
             <p>Surname: {checkoutData?.lastName}</p>
+            <p>Email: {checkoutData?.email}</p>
           </UserData>
           <Address>
             <h3>Shipping Address</h3>
