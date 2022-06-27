@@ -94,11 +94,29 @@ const StyledButton = styled.button`
   margin-top: 1rem;
 `;
 
-const TotalCost = styled.div``;
+const TotalCost = styled.div`
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 18rem;
+  margin-left: auto;
+  span {
+    text-align: end;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+`;
 
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
   const ctx = useContext(Context);
   const cartItems = ctx?.cartList;
+
+  const itemsCost = ctx?.cartList.reduce((accumulator, object) => {
+    return accumulator + object.price * object.amount;
+  }, 0);
 
   return (
     <>
@@ -153,6 +171,18 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
         })}
       </CartItems>
       <TotalCost>
+        <div>
+          <span>Subtotal: $</span>
+          <span>{itemsCost}</span>
+        </div>
+        <div>
+          <span>Shipping: </span>
+          <span>$12</span>
+        </div>
+        <div>
+          <strong>Total:</strong>
+          <strong>$ {itemsCost && itemsCost + 12} </strong>
+        </div>
         <StyledButton>Place Order</StyledButton>
       </TotalCost>
     </>
