@@ -54,7 +54,9 @@ const FormStep = ({ step, setStep }: Props) => {
           <ShippingMethod setStep={setStep} setCheckoutData={setCheckoutData} />
         )}
         {step === 4 && <OrderSummary setStep={setStep} />}
-        {step === 5 && <ConfirmCheckoutData checkoutData={checkoutData} />}
+        {step === 5 && (
+          <ConfirmCheckoutData checkoutData={checkoutData} setStep={setStep} />
+        )}
       </Container>
     </Wrapper>
   );
