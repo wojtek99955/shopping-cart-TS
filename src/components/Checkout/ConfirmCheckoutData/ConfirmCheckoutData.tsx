@@ -111,6 +111,9 @@ const TotalCost = styled.div`
     justify-content: space-between;
     margin-bottom: 0.8rem;
   }
+  strong {
+    font-size: 1.2rem;
+  }
 `;
 
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
