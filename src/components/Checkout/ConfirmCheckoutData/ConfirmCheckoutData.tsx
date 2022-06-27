@@ -7,6 +7,12 @@ const Container = styled.div`
   h2 {
     text-align: center;
   }
+  h3 {
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 0.6rem;
+  }
 `;
 
 const Data = styled.div``;
