@@ -92,6 +92,9 @@ const StyledButton = styled.button`
   color: white;
   cursor: pointer;
   margin-top: 1rem;
+  &:hover {
+    background-color: #008970;
+  }
 `;
 
 const TotalCost = styled.div`
