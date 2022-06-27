@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
+import { BtnsContainer } from "../assets/atoms/CardsStyles";
 type Props = {
   checkoutData: CheckoutDataTypes | undefined;
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -52,6 +53,10 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
           <p>{checkoutData?.payment}</p>
         </Payment>
       </Data>
+      <BtnsContainer>
+        <button onClick={() => setStep((prev) => prev - 1)}>Back</button>
+        <button>Place Order</button>
+      </BtnsContainer>
     </Container>
   );
 };
