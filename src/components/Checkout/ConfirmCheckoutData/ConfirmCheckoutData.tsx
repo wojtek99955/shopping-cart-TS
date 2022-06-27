@@ -14,14 +14,24 @@ const Container = styled.div`
     text-align: center;
   }
   h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   p {
     margin-bottom: 0.6rem;
   }
+  hr {
+    margin-bottom: 1.2rem;
+  }
 `;
 
-const Data = styled.div``;
+const Data = styled.div`
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+  column-gap: 2rem;
+  margin: auto;
+`;
 const UserData = styled.div``;
 const Address = styled.div``;
 const Shipping = styled.div``;
@@ -34,11 +44,13 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
       <Data>
         <UserData>
           <h3>Clients Data</h3>
+          <hr />
           <p>Name: {checkoutData?.fitstName}</p>
           <p>Surname: {checkoutData?.lastName}</p>
         </UserData>
         <Address>
           <h3>Shipping Address</h3>
+          <hr />
           <p>Address: {checkoutData?.address}</p>
           <p>Zip Code: {checkoutData?.zip}</p>
           <p>City: {checkoutData?.city}</p>
@@ -46,10 +58,12 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
         </Address>
         <Shipping>
           <h3>Shipping Method</h3>
+          <hr />
           <p>{checkoutData?.shipping}</p>
         </Shipping>
         <Payment>
           <h3>Payment method</h3>
+          <hr />
           <p>{checkoutData?.payment}</p>
         </Payment>
       </Data>
