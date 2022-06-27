@@ -9,7 +9,7 @@ type Props = {
   checkoutData: CheckoutDataTypes | undefined;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
-const Container = styled.div`
+const DataContainer = styled.div`
   box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
   border-radius: 15px;
   padding: 1rem;
@@ -49,12 +49,42 @@ const Title = styled.h2`
   margin-bottom: 2rem;
 `;
 
+const CartItems = styled.div``;
+const ItemContainer = styled.div`
+  img {
+    width: 7rem;
+    height: 7rem;
+    object-fit: contain;
+  }
+`;
+
+const ItemDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+`;
+
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
   const ctx = useContext(Context);
+  const cartItems = ctx?.cartList;
+
   return (
     <>
       <Title>Order Confirmation</Title>
-      <Container>
+      <DataContainer>
         <Data>
           <UserData>
             <h3>Clients Data</h3>
@@ -85,7 +115,25 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
           <button onClick={() => setStep((prev) => prev - 1)}>Back</button>
           <button>Place Order</button>
         </BtnsContainer>
-      </Container>
+      </DataContainer>
+      <CartItems>
+        {cartItems?.map((item) => {
+          return (
+            <ItemContainer key={item.id}>
+              <Wrapper>
+                <img src={item.image} alt={item.title} />
+                <ItemDescription>
+                  <h3>{item.title}</h3>
+                  <p>{item.description.slice(0, 15)}...</p>
+                </ItemDescription>
+                <p>{item.amount}</p>
+                <p>$ {item.price}</p>
+              </Wrapper>
+              <hr />
+            </ItemContainer>
+          );
+        })}
+      </CartItems>
     </>
   );
 };
