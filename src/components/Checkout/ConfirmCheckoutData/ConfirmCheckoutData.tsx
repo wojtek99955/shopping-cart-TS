@@ -27,10 +27,10 @@ const ConfirmCheckoutData = ({ checkoutData }: Props) => {
         </UserData>
         <Address>
           <h3>Shipping Address</h3>
-          <p>{checkoutData?.address}</p>
-          <p>{checkoutData?.zip}</p>
-          <p>{checkoutData?.city}</p>
-          <p>{checkoutData?.country}</p>
+          <p>Address: {checkoutData?.address}</p>
+          <p>Zip Code: {checkoutData?.zip}</p>
+          <p>City: {checkoutData?.city}</p>
+          <p>Country: {checkoutData?.country}</p>
         </Address>
         <Shipping>
           <h3>Shipping Method</h3>
