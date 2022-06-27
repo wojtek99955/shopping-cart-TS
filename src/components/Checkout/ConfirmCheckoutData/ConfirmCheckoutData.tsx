@@ -4,6 +4,10 @@ type Props = {
   checkoutData: CheckoutDataTypes | undefined;
 };
 const Container = styled.div`
+  box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
+  border-radius: 15px;
+  padding: 1rem;
+
   h2 {
     text-align: center;
   }
