@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
 type Props = {
   checkoutData: CheckoutDataTypes | undefined;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 const Container = styled.div`
   box-shadow: 0px 0px 24px -15px rgba(66, 68, 90, 1);
@@ -25,7 +26,7 @@ const Address = styled.div``;
 const Shipping = styled.div``;
 const Payment = styled.div``;
 
-const ConfirmCheckoutData = ({ checkoutData }: Props) => {
+const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
   return (
     <Container>
       <h2>Confirm Data</h2>
