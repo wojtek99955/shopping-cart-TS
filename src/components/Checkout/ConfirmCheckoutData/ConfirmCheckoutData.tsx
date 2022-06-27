@@ -12,6 +12,7 @@ const Container = styled.div`
 
   h2 {
     text-align: center;
+    margin-bottom: 2rem;
   }
   h3 {
     margin-bottom: 0.5rem;
@@ -25,12 +26,13 @@ const Container = styled.div`
 `;
 
 const Data = styled.div`
-  padding: 2rem 0;
+  padding-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 3rem;
   column-gap: 2rem;
   margin: auto;
+  padding-bottom: 3rem;
 `;
 const UserData = styled.div``;
 const Address = styled.div``;
