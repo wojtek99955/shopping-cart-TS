@@ -123,7 +123,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
               <Wrapper>
                 <img src={item.image} alt={item.title} />
                 <ItemDescription>
-                  <h3>{item.title}</h3>
+                  <h3>{item.title.slice(0, 15)}...</h3>
                   <p>{item.description.slice(0, 15)}...</p>
                 </ItemDescription>
                 <p>{item.amount}</p>
