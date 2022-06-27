@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { radioValues } from "../Checkout/assets/interfaces/Interfaces";
 import { device } from "../../assets/media";
 import { Field } from "formik";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
