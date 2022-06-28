@@ -111,7 +111,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
       <TotalCost>
         <div>
           <span>Subtotal: $</span>
-          <span>{itemsCost}</span>
+          <span>{itemsCost?.toFixed(2)}</span>
         </div>
         <div>
           <span>Shipping: </span>
