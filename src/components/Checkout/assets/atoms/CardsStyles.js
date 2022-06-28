@@ -73,6 +73,11 @@ export const BtnsContainer = styled.div`
     color: white;
     cursor: pointer;
 
+    &:disabled {
+      background-color: rgba(0, 208, 169, 0.4);
+      cursor: default;
+    }
+
     &:hover {
       background-color: #008970;
     }
