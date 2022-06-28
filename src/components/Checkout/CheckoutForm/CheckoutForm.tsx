@@ -24,14 +24,15 @@ interface Props {
 
 const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
   const initialValues: FormValues = {
-    email: "",
+    email: checkoutData?.email !== undefined ? checkoutData.email : "",
     newsletter: false,
-    firstName: "",
-    lastName: "",
-    address: "",
-    zip: "",
-    city: "",
-    country: "",
+    firstName:
+      checkoutData?.fitstName !== undefined ? checkoutData.fitstName : "",
+    lastName: checkoutData?.lastName !== undefined ? checkoutData.lastName : "",
+    address: checkoutData?.address !== undefined ? checkoutData.address : "",
+    zip: checkoutData?.zip !== undefined ? checkoutData.zip : "",
+    city: checkoutData?.city !== undefined ? checkoutData.city : "",
+    country: checkoutData?.country !== undefined ? checkoutData.country : "",
   };
 
   const validationSchema = Yup.object().shape({
@@ -49,6 +50,7 @@ const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
     city: Yup.string().required("required"),
     country: Yup.string().required("required"),
   });
+  console.log(checkoutData);
 
   return (
     <Container>
@@ -59,6 +61,7 @@ const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
+          validateOnBlur={true}
           onSubmit={(values, isValidating) => {
             if (isValidating) {
               setStep((prev) => prev + 1);
@@ -92,15 +95,36 @@ const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
               id="lastName"
               name="lastName"
               placeholder="Last Name *"
+              value={checkoutData?.lastName}
             />
             <ErrorMessage name="lastName" component={ValidationError} />
-            <StyledField id="address" name="address" placeholder="Address *" />
+            <StyledField
+              id="address"
+              name="address"
+              placeholder="Address *"
+              value={checkoutData?.address}
+            />
             <ErrorMessage name="address" component={ValidationError} />
-            <StyledField id="zip" name="zip" placeholder="ZIP Code *" />
+            <StyledField
+              id="zip"
+              name="zip"
+              placeholder="ZIP Code *"
+              value={checkoutData?.zip}
+            />
             <ErrorMessage name="zip" component={ValidationError} />
-            <StyledField id="city" name="city" placeholder="City *" />
+            <StyledField
+              id="city"
+              name="city"
+              placeholder="City *"
+              value={checkoutData?.city}
+            />
             <ErrorMessage name="city" component={ValidationError} />
-            <StyledField id="country" name="country" placeholder="Country *" />
+            <StyledField
+              id="country"
+              name="country"
+              placeholder="Country *"
+              value={checkoutData?.country}
+            />
             <ErrorMessage name="country" component={ValidationError} />
             <BtnsContainer>
               <button disabled>prev</button>
