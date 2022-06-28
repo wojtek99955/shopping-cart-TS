@@ -19,14 +19,6 @@ import {
 } from "./PaymentStyles";
 import { initialValuesTypes } from "../assets/interfaces/Interfaces";
 
-const initialValues: initialValuesTypes = {
-  picked: "",
-  cardNumber: "",
-  expirationMonth: "",
-  expirationYear: "",
-  cvc: "",
-};
-
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setCheckoutData: React.Dispatch<
@@ -52,6 +44,13 @@ const validationSchema = Yup.object().shape({
 });
 
 const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
+  const initialValues: initialValuesTypes = {
+    picked: checkoutData?.payment !== undefined ? checkoutData.payment : "",
+    cardNumber: "",
+    expirationMonth: "",
+    expirationYear: "",
+    cvc: "",
+  };
   return (
     <FormContainer>
       <Title>
