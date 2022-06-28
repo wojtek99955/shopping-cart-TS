@@ -66,14 +66,17 @@ const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
             if (isValidating) {
               setStep((prev) => prev + 1);
             }
-            setCheckoutData({
-              email: values.email,
-              fitstName: values.firstName,
-              lastName: values.lastName,
-              address: values.address,
-              zip: values.zip,
-              city: values.city,
-              country: values.country,
+            setCheckoutData((prev) => {
+              return {
+                email: values.email,
+                fitstName: values.firstName,
+                lastName: values.lastName,
+                address: values.address,
+                zip: values.zip,
+                city: values.city,
+                country: values.country,
+                ...prev,
+              };
             });
           }}
         >
