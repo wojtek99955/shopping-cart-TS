@@ -49,7 +49,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
                 <p>Surname: {checkoutData?.lastName}</p>
                 <p>Email: {checkoutData?.email}</p>
               </div>
-              <UpdateBtn>Edit</UpdateBtn>
+              <UpdateBtn onClick={() => setStep(1)}>Edit</UpdateBtn>
             </DataDetails>
           </UserData>
           <Address>
@@ -62,7 +62,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
                 <p>City: {checkoutData?.city}</p>
                 <p>Country: {checkoutData?.country}</p>
               </div>
-              <UpdateBtn>Edit</UpdateBtn>
+              <UpdateBtn onClick={() => setStep(1)}>Edit</UpdateBtn>
             </DataDetails>
           </Address>
           <Shipping>
@@ -70,7 +70,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
             <hr />
             <DataDetails>
               <p>{checkoutData?.shipping}</p>
-              <UpdateBtn>Edit</UpdateBtn>
+              <UpdateBtn onClick={() => setStep(3)}>Edit</UpdateBtn>
             </DataDetails>
           </Shipping>
           <Payment>
@@ -78,7 +78,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
             <hr />
             <DataDetails>
               <p>{checkoutData?.payment}</p>
-              <UpdateBtn>Edit</UpdateBtn>
+              <UpdateBtn onClick={() => setStep(2)}>Edit</UpdateBtn>
             </DataDetails>
           </Payment>
         </Data>
