@@ -5,7 +5,6 @@ import { Products } from "../../../ContextProvider";
 import { useNavigate } from "react-router-dom";
 import {
   OrderContainer,
-  OrderButton,
   Item,
   ItemsContainer,
   ItemDetails,
