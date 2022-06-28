@@ -101,7 +101,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
         </div>
         <div>
           <strong>Total:</strong>
-          <strong>$ {itemsCost && itemsCost + 12} </strong>
+          <strong>$ {(itemsCost && itemsCost + 12)?.toFixed(2)} </strong>
         </div>
         <StyledButton>Place Order</StyledButton>
       </TotalCost>
