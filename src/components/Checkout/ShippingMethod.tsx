@@ -16,10 +16,6 @@ const FormWrapper = styled.div`
   padding-top: 1rem;
 `;
 
-const initialValues: radioValues = {
-  picked: "",
-};
-
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setCheckoutData: React.Dispatch<
@@ -33,6 +29,10 @@ const validationSchema = Yup.object().shape({
 });
 
 const ShippingMethod = ({ setStep, setCheckoutData, checkoutData }: Props) => {
+  const initialValues: radioValues = {
+    picked: checkoutData?.shipping !== undefined ? checkoutData.shipping : "",
+  };
+
   return (
     <FormContainer>
       <Title>
