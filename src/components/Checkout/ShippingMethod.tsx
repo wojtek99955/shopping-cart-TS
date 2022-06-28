@@ -25,13 +25,14 @@ interface Props {
   setCheckoutData: React.Dispatch<
     React.SetStateAction<CheckoutDataTypes | undefined>
   >;
+  checkoutData: CheckoutDataTypes | undefined;
 }
 
 const validationSchema = Yup.object().shape({
   picked: Yup.string().required("A radio option is required"),
 });
 
-const ShippingMethod = ({ setStep, setCheckoutData }: Props) => {
+const ShippingMethod = ({ setStep, setCheckoutData, checkoutData }: Props) => {
   return (
     <FormContainer>
       <Title>
