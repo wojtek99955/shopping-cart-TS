@@ -73,6 +73,7 @@ export const Title = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 
   h3 {
     vertical-align: middle;
