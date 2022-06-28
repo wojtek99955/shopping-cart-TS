@@ -113,3 +113,17 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
+
+export const UpdateBtn = styled.button`
+  display: inline-block;
+  height: 1rem;
+  border: none;
+  background-color: transparent;
+  color: #00d0a9;
+  font-size: 1rem;
+  cursor: pointer;
+`;
+export const DataDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

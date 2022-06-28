@@ -18,6 +18,8 @@ import {
   StyledButton,
   StyledLink,
   TotalCost,
+  DataDetails,
+  UpdateBtn,
 } from "./ConfirmCheckoutDataStyles";
 
 type Props = {
@@ -41,27 +43,43 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
           <UserData>
             <h3>Clients Data</h3>
             <hr />
-            <p>Name: {checkoutData?.fitstName}</p>
-            <p>Surname: {checkoutData?.lastName}</p>
-            <p>Email: {checkoutData?.email}</p>
+            <DataDetails>
+              <div>
+                <p>Name: {checkoutData?.fitstName}</p>
+                <p>Surname: {checkoutData?.lastName}</p>
+                <p>Email: {checkoutData?.email}</p>
+              </div>
+              <UpdateBtn>Edit</UpdateBtn>
+            </DataDetails>
           </UserData>
           <Address>
             <h3>Shipping Address</h3>
             <hr />
-            <p>Address: {checkoutData?.address}</p>
-            <p>Zip Code: {checkoutData?.zip}</p>
-            <p>City: {checkoutData?.city}</p>
-            <p>Country: {checkoutData?.country}</p>
+            <DataDetails>
+              <div>
+                <p>Address: {checkoutData?.address}</p>
+                <p>Zip Code: {checkoutData?.zip}</p>
+                <p>City: {checkoutData?.city}</p>
+                <p>Country: {checkoutData?.country}</p>
+              </div>
+              <UpdateBtn>Edit</UpdateBtn>
+            </DataDetails>
           </Address>
           <Shipping>
             <h3>Shipping Method</h3>
             <hr />
-            <p>{checkoutData?.shipping}</p>
+            <DataDetails>
+              <p>{checkoutData?.shipping}</p>
+              <UpdateBtn>Edit</UpdateBtn>
+            </DataDetails>
           </Shipping>
           <Payment>
             <h3>Payment method</h3>
             <hr />
-            <p>{checkoutData?.payment}</p>
+            <DataDetails>
+              <p>{checkoutData?.payment}</p>
+              <UpdateBtn>Edit</UpdateBtn>
+            </DataDetails>
           </Payment>
         </Data>
         <BtnsContainer>
