@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../../ContextProvider";
-import { Title } from "../assets/atoms/CardsStyles";
+import { BtnsContainer, Title } from "../assets/atoms/CardsStyles";
 import { Products } from "../../../ContextProvider";
 import { useNavigate } from "react-router-dom";
 import {
@@ -59,6 +59,9 @@ const OrderSummary = ({ setStep }: Props) => {
 
   const handleNextStep = () => {
     setStep((prev) => prev + 1);
+  };
+  const handlePrevStep = () => {
+    setStep((prev) => prev - 1);
   };
 
   let navigate = useNavigate();
@@ -130,12 +133,12 @@ const OrderSummary = ({ setStep }: Props) => {
           <p>{counter}</p>
         </NoItemContainer>
       )}
-      <OrderButton
-        onClick={handleNextStep}
-        disabled={ctx?.cartList.length === 0}
-      >
-        Confirm Data
-      </OrderButton>
+      <BtnsContainer>
+        <button onClick={handlePrevStep}>prev</button>
+        <button onClick={handleNextStep} disabled={ctx?.cartList.length === 0}>
+          next
+        </button>
+      </BtnsContainer>
     </OrderContainer>
   );
 };
