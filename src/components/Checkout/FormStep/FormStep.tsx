@@ -41,7 +41,11 @@ const FormStep = ({ step, setStep }: Props) => {
         </CurrentStep>
 
         {step === 1 && (
-          <CheckoutForm setStep={setStep} setCheckoutData={setCheckoutData} />
+          <CheckoutForm
+            setStep={setStep}
+            setCheckoutData={setCheckoutData}
+            checkoutData={checkoutData}
+          />
         )}
         {step === 2 && (
           <Payment
