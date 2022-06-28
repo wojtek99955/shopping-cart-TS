@@ -19,9 +19,10 @@ interface Props {
   setCheckoutData: React.Dispatch<
     React.SetStateAction<CheckoutDataTypes | undefined>
   >;
+  checkoutData: CheckoutDataTypes | undefined;
 }
 
-const CheckoutForm = ({ setStep, setCheckoutData }: Props) => {
+const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
   const initialValues: FormValues = {
     email: "",
     newsletter: false,
