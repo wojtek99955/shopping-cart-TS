@@ -4,6 +4,7 @@ import { BtnsContainer } from "../assets/atoms/CardsStyles";
 import { device } from "../../../assets/media";
 import { Context } from "../../../ContextProvider";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   checkoutData: CheckoutDataTypes | undefined;
@@ -116,6 +117,11 @@ const TotalCost = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
   const ctx = useContext(Context);
   const cartItems = ctx?.cartList;
@@ -164,11 +170,15 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
           return (
             <ItemContainer key={item.id}>
               <Wrapper>
-                <img src={item.image} alt={item.title} />
-                <ItemDescription>
-                  <span>{item.title.slice(0, 15)}...</span>
-                  <span>{item.description.slice(0, 15)}...</span>
-                </ItemDescription>
+                <Link to={`/product/${item.id}`}>
+                  <img src={item.image} alt={item.title} />
+                </Link>
+                <StyledLink to={`/product/${item.id}`}>
+                  <ItemDescription>
+                    <span>{item.title.slice(0, 15)}...</span>
+                    <span>{item.description.slice(0, 15)}...</span>
+                  </ItemDescription>
+                </StyledLink>
                 <p>{item.amount}</p>
                 <strong>$ {item.price}</strong>
               </Wrapper>
