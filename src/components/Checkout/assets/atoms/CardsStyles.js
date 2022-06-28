@@ -63,6 +63,7 @@ export const Title = styled.div`
 `;
 
 export const BtnsContainer = styled.div`
+  margin-top: 2rem;
   display: flex;
   justify-content: space-between;
   button {
