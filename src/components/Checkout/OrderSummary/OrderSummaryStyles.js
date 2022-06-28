@@ -22,26 +22,6 @@ export const OrderContainer = styled.div`
   }
 `;
 
-export const OrderButton = styled.button`
-  padding: 0.8rem 1.6rem;
-  background-color: #00d0a9;
-  border: none;
-  border-radius: 15px;
-  display: block;
-  margin: auto;
-  margin-top: 1.5rem;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #008970;
-  }
-  &:disabled {
-    background-color: rgba(0, 208, 169, 0.4);
-    cursor: default;
-  }
-`;
-
 export const Item = styled.div`
   display: flex;
   align-items: center;
