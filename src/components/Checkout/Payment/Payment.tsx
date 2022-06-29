@@ -56,6 +56,9 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
         .matches(/(1[4-9]|[2-9][0-9]|20[1-9][1-9])/)
         .required("required"),
     }),
+    cvc: Yup.string()
+      .matches(/^[0-9]{3}$/, "invalid code")
+      .required("required"),
   });
   const initialValues: initialValuesTypes = {
     picked:
