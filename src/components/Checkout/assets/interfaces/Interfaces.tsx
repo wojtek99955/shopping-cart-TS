@@ -22,7 +22,13 @@ export interface CheckoutDataTypes {
   city?: string;
   country?: string;
   newsletter?: boolean;
-  payment?: string;
+  payment?: {
+    picked?: string;
+    cardNumber?: string;
+    expirationMonth?: string;
+    expirationYear?: string;
+    cvc?: string;
+  };
   shipping?: string;
 }
 
