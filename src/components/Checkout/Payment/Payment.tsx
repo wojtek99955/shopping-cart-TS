@@ -104,6 +104,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                   picked: values.picked,
                   expirationMonth: values.expirationMonth,
                   expirationYear: values.expirationYear,
+                  cvc: values.cvc,
                 },
               };
             });
