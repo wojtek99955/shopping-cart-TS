@@ -16,8 +16,13 @@ import {
   TextField,
   ExpirationDate,
   ExpirationData,
+  VisaIcon,
+  PaymentNetwork,
+  MasterCardIcon,
 } from "./PaymentStyles";
 import { initialValuesTypes } from "../assets/interfaces/Interfaces";
+
+const regExp = "^4[0-9]{12}(?:[0-9]{3})?$";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -29,10 +34,12 @@ interface Props {
 
 const validationSchema = Yup.object().shape({
   picked: Yup.string().required("A radio option is required"),
-  cardNumber: Yup.string().when("picked", {
-    is: "Card",
-    then: Yup.string().required("required"),
-  }),
+  cardNumber: Yup.string()
+    .when("picked", {
+      is: "Card",
+      then: Yup.string().required("required"),
+    })
+    .matches(/4[0-9]{12}(?:[0-9]{3})?$/, "invalid card number"),
   expirationMonth: Yup.string().when("picked", {
     is: "Card",
     then: Yup.string().required("required"),
@@ -93,11 +100,15 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
               </Column>
               {values.picked === "Card" ? (
                 <CardContainer>
+                  <PaymentNetwork>
+                    <VisaIcon />
+                    <MasterCardIcon />
+                  </PaymentNetwork>
                   <Column>
                     <TextField
                       type="text"
                       name="cardNumber"
-                      placeholder="card number"
+                      placeholder="xxxx xxxx xxxx xxxx"
                     />
                     <ErrorMessage
                       name="cardNumber"
@@ -109,7 +120,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       <TextField
                         type="text"
                         name="expirationMonth"
-                        placeholder="expiration month"
+                        placeholder="xx"
                       />
                       <ErrorMessage
                         name="expirationMonth"
@@ -120,7 +131,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       <TextField
                         type="text"
                         name="expirationYear"
-                        placeholder="expiration year"
+                        placeholder="xx"
                       />
                       <ErrorMessage
                         name="expirationYear"
