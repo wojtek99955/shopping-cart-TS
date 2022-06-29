@@ -115,13 +115,18 @@ export const StyledLink = styled(Link)`
 `;
 
 export const UpdateBtn = styled.button`
-  display: inline-block;
+  display: block;
   height: 1rem;
   border: none;
   background-color: transparent;
+  width: 3rem;
+  height: 1.6rem;
   color: #00d0a9;
   font-size: 1rem;
   cursor: pointer;
+  &:active {
+    background-color: rgb(0, 208, 169, 0.2);
+  }
 `;
 export const DataDetails = styled.div`
   display: flex;
