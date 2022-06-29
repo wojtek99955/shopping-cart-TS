@@ -22,7 +22,6 @@ import {
   CVC,
 } from "./PaymentStyles";
 import { initialValuesTypes } from "../assets/interfaces/Interfaces";
-import { useState } from "react";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
