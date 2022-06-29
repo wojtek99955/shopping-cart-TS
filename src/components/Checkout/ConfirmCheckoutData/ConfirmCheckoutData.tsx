@@ -20,12 +20,18 @@ import {
   TotalCost,
   DataDetails,
   UpdateBtn,
+  CardData,
 } from "./ConfirmCheckoutDataStyles";
+import { MasterCardIcon, VisaIcon } from "../Payment/PaymentStyles";
 
 type Props = {
   checkoutData: CheckoutDataTypes | undefined;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
+
+const masterCardRegExp =
+  /^5[1-5][0-9]{14}|^(222[1-9]|22[3-9]\\d|2[3-6]\\d{2}|27[0-1]\\d|2720)[0-9]{12}$/;
+const visaRegExp = /^4[0-9]{12}(?:[0-9]{3})?$/;
 
 const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
   const ctx = useContext(Context);
@@ -77,7 +83,17 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
             <h3>Payment method</h3>
             <hr />
             <DataDetails>
-              <p>{checkoutData?.payment}</p>
+              {checkoutData?.payment?.picked === "Card" ? (
+                <CardData>
+                  {visaRegExp.test(checkoutData.payment.cardNumber!) ? (
+                    <VisaIcon />
+                  ) : null}
+                  {masterCardRegExp.test(checkoutData.payment.cardNumber!) ? (
+                    <MasterCardIcon />
+                  ) : null}
+                  <span>{checkoutData?.payment?.cardNumber}</span>
+                </CardData>
+              ) : null}
               <UpdateBtn onClick={() => setStep(2)}>Edit</UpdateBtn>
             </DataDetails>
           </Payment>
