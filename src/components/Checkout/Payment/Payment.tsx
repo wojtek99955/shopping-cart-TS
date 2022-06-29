@@ -21,8 +21,7 @@ import {
   MasterCardIcon,
 } from "./PaymentStyles";
 import { initialValuesTypes } from "../assets/interfaces/Interfaces";
-
-const regExp = "^4[0-9]{12}(?:[0-9]{3})?$";
+import { useState } from "react";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
@@ -32,25 +31,30 @@ interface Props {
   checkoutData: CheckoutDataTypes | undefined;
 }
 
-const validationSchema = Yup.object().shape({
-  picked: Yup.string().required("A radio option is required"),
-  cardNumber: Yup.string()
-    .when("picked", {
+const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
+  const [paymentNetwork, setPaymentNetwork] = useState("Visa");
+
+  const validationSchema = Yup.object().shape({
+    picked: Yup.string().required("A radio option is required"),
+    cardNumber: Yup.string().when("picked", {
+      is: "Card",
+      then: Yup.string()
+        .matches(
+          /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
+          "invalid card number"
+        )
+        .required("required"),
+    }),
+
+    expirationMonth: Yup.string().when("picked", {
       is: "Card",
       then: Yup.string().required("required"),
-    })
-    .matches(/4[0-9]{12}(?:[0-9]{3})?$/, "invalid card number"),
-  expirationMonth: Yup.string().when("picked", {
-    is: "Card",
-    then: Yup.string().required("required"),
-  }),
-  expirationYear: Yup.string().when("picked", {
-    is: "Card",
-    then: Yup.string().required("required"),
-  }),
-});
-
-const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
+    }),
+    expirationYear: Yup.string().when("picked", {
+      is: "Card",
+      then: Yup.string().required("required"),
+    }),
+  });
   const initialValues: initialValuesTypes = {
     picked: checkoutData?.payment !== undefined ? checkoutData.payment : "",
     cardNumber: "",
@@ -101,8 +105,16 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
               {values.picked === "Card" ? (
                 <CardContainer>
                   <PaymentNetwork>
-                    <VisaIcon />
-                    <MasterCardIcon />
+                    <VisaIcon
+                      onClick={() => {
+                        setPaymentNetwork("Visa");
+                      }}
+                    />
+                    <MasterCardIcon
+                      onClick={() => {
+                        setPaymentNetwork("MasterCard");
+                      }}
+                    />
                   </PaymentNetwork>
                   <Column>
                     <TextField
