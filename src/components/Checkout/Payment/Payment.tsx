@@ -19,6 +19,7 @@ import {
   VisaIcon,
   PaymentNetwork,
   MasterCardIcon,
+  CVC,
 } from "./PaymentStyles";
 import { initialValuesTypes } from "../assets/interfaces/Interfaces";
 import { useState } from "react";
@@ -43,7 +44,6 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
         )
         .required("required"),
     }),
-
     expirationMonth: Yup.string().when("picked", {
       is: "Card",
       then: Yup.string()
@@ -170,6 +170,8 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       />
                     </ExpirationData>
                   </ExpirationDate>
+                  <CVC type="text" name="cvc" placeholder="123" />
+                  <ErrorMessage name="cvc" component={ValidationError} />
                 </CardContainer>
               ) : null}
               <Column>
