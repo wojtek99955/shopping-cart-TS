@@ -100,7 +100,9 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
                       )}
                   </span>
                 </CardData>
-              ) : null}
+              ) : (
+                <p>{checkoutData?.payment?.picked} </p>
+              )}
               <UpdateBtn onClick={() => setStep(2)}>Edit</UpdateBtn>
             </DataDetails>
           </Payment>
