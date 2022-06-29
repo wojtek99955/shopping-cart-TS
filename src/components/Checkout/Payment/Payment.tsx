@@ -46,19 +46,36 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
 
     expirationMonth: Yup.string().when("picked", {
       is: "Card",
-      then: Yup.string().required("required"),
+      then: Yup.string()
+        .matches(/^(0[1-9]|1[0-2])/, "invalid date")
+        .required("required"),
     }),
     expirationYear: Yup.string().when("picked", {
       is: "Card",
-      then: Yup.string().required("required"),
+      then: Yup.string()
+        .matches(/(1[4-9]|[2-9][0-9]|20[1-9][1-9])/)
+        .required("required"),
     }),
   });
   const initialValues: initialValuesTypes = {
-    picked: "",
-    cardNumber: "",
-    expirationMonth: "",
-    expirationYear: "",
-    cvc: "",
+    picked:
+      checkoutData?.payment?.picked !== undefined
+        ? checkoutData.payment.picked
+        : "",
+    cardNumber:
+      checkoutData?.payment?.cardNumber !== undefined
+        ? checkoutData.payment.cardNumber
+        : "",
+    expirationMonth:
+      checkoutData?.payment?.expirationMonth !== undefined
+        ? checkoutData.payment.expirationMonth
+        : "",
+    expirationYear:
+      checkoutData?.payment?.expirationYear !== undefined
+        ? checkoutData.payment.expirationYear
+        : "",
+    cvc:
+      checkoutData?.payment?.cvc !== undefined ? checkoutData.payment.cvc : "",
   };
   return (
     <FormContainer>
@@ -116,6 +133,13 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       type="text"
                       name="cardNumber"
                       placeholder="xxxx xxxx xxxx xxxx"
+                      onKeydown={() => {
+                        if (values.cardNumber.length > 0) {
+                          if (values.cardNumber.length % 4 == 0) {
+                            values.cardNumber += "    ";
+                          }
+                        }
+                      }}
                     />
                     <ErrorMessage
                       name="cardNumber"
