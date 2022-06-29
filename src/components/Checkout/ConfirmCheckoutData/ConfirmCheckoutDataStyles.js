@@ -132,3 +132,8 @@ export const DataDetails = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const CardData = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
