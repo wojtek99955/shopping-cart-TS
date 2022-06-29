@@ -1,5 +1,7 @@
 import { Field } from "formik";
 import styled from "styled-components";
+import { FaCcVisa } from "react-icons/fa";
+import { FaCcMastercard } from "react-icons/fa";
 
 export const FormWrapper = styled.div`
   padding-top: 1rem;
@@ -27,3 +29,20 @@ export const ExpirationDate = styled.div`
 `;
 
 export const ExpirationData = styled.div``;
+
+export const VisaIcon = styled(FaCcVisa)`
+  font-size: 2.5rem;
+  color: #0e4390;
+`;
+
+export const MasterCardIcon = styled(FaCcMastercard)`
+  font-size: 2.5rem;
+  color: #003461;
+  cursor: pointer;
+`;
+
+export const PaymentNetwork = styled.div`
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+`;
