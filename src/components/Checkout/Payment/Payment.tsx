@@ -32,8 +32,6 @@ interface Props {
 }
 
 const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
-  const [paymentNetwork, setPaymentNetwork] = useState("Visa");
-
   const validationSchema = Yup.object().shape({
     picked: Yup.string().required("A radio option is required"),
     cardNumber: Yup.string().when("picked", {
@@ -110,16 +108,8 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
               {values.picked === "Card" ? (
                 <CardContainer>
                   <PaymentNetwork>
-                    <VisaIcon
-                      onClick={() => {
-                        setPaymentNetwork("Visa");
-                      }}
-                    />
-                    <MasterCardIcon
-                      onClick={() => {
-                        setPaymentNetwork("MasterCard");
-                      }}
-                    />
+                    <VisaIcon />
+                    <MasterCardIcon />
                   </PaymentNetwork>
                   <Column>
                     <TextField
