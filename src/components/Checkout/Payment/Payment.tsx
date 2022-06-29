@@ -139,13 +139,6 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       type={"number"}
                       name="cardNumber"
                       placeholder="xxxx xxxx xxxx xxxx"
-                      onKeydown={() => {
-                        if (values.cardNumber.length > 0) {
-                          if (values.cardNumber.length % 4 == 0) {
-                            values.cardNumber += "    ";
-                          }
-                        }
-                      }}
                     />
                     <ErrorMessage
                       name="cardNumber"
