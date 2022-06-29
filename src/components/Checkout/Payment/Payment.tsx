@@ -56,7 +56,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
     }),
   });
   const initialValues: initialValuesTypes = {
-    picked: checkoutData?.payment !== undefined ? checkoutData.payment : "",
+    picked: "",
     cardNumber: "",
     expirationMonth: "",
     expirationYear: "",
@@ -79,7 +79,12 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
             setCheckoutData((prev) => {
               return {
                 ...prev,
-                payment: values.picked,
+                payment: {
+                  cardNumber: values.cardNumber,
+                  picked: values.picked,
+                  expirationMonth: values.expirationMonth,
+                  expirationYear: values.expirationYear,
+                },
               };
             });
           }}
