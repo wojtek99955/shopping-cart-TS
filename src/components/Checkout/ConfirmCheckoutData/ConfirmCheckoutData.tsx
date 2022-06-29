@@ -92,10 +92,12 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
                     <MasterCardIcon />
                   ) : null}
                   <span>
-                    {checkoutData?.payment?.cardNumber?.replace(
-                      /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/gm,
-                      "**** **** **** "
-                    )}
+                    {checkoutData?.payment?.cardNumber
+                      ?.toString()
+                      .replace(
+                        /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/gm,
+                        "**** **** **** "
+                      )}
                   </span>
                 </CardData>
               ) : null}
