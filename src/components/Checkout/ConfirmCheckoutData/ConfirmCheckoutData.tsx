@@ -91,7 +91,12 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
                   {masterCardRegExp.test(checkoutData.payment.cardNumber!) ? (
                     <MasterCardIcon />
                   ) : null}
-                  <span>{checkoutData?.payment?.cardNumber}</span>
+                  <span>
+                    {checkoutData?.payment?.cardNumber?.replace(
+                      /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/gm,
+                      "**** **** **** "
+                    )}
+                  </span>
                 </CardData>
               ) : null}
               <UpdateBtn onClick={() => setStep(2)}>Edit</UpdateBtn>
