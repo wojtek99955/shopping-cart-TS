@@ -25,7 +25,7 @@ import {
 import { MasterCardIcon, VisaIcon } from "../Payment/PaymentStyles";
 
 type Props = {
-  checkoutData: CheckoutDataTypes | undefined;
+  checkoutData: CheckoutDataTypes;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -92,7 +92,7 @@ const ConfirmCheckoutData = ({ checkoutData, setStep }: Props) => {
                     <MasterCardIcon />
                   ) : null}
                   <span>
-                    {checkoutData?.payment?.cardNumber
+                    {checkoutData.payment.cardNumber
                       ?.toString()
                       .replace(
                         /\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/gm,

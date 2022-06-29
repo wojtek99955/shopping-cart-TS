@@ -21,7 +21,7 @@ interface Props {
 }
 
 const FormStep = ({ step, setStep }: Props) => {
-  const [checkoutData, setCheckoutData] = useState<CheckoutDataTypes>();
+  const [checkoutData, setCheckoutData] = useState<CheckoutDataTypes>({});
   const stepNumber = [1, 2, 3, 4];
   console.log(step);
 

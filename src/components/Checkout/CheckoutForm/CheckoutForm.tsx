@@ -16,10 +16,8 @@ import { CheckoutDataTypes } from "../assets/interfaces/Interfaces";
 
 interface Props {
   setStep: React.Dispatch<React.SetStateAction<number>>;
-  setCheckoutData: React.Dispatch<
-    React.SetStateAction<CheckoutDataTypes | undefined>
-  >;
-  checkoutData: CheckoutDataTypes | undefined;
+  setCheckoutData: React.Dispatch<React.SetStateAction<CheckoutDataTypes>>;
+  checkoutData: CheckoutDataTypes;
 }
 
 const CheckoutForm = ({ setStep, setCheckoutData, checkoutData }: Props) => {
