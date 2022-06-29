@@ -133,7 +133,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                   </PaymentNetwork>
                   <Column>
                     <TextField
-                      type="text"
+                      type={"number"}
                       name="cardNumber"
                       placeholder="xxxx xxxx xxxx xxxx"
                       onKeydown={() => {
