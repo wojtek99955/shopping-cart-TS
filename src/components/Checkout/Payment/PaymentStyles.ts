@@ -44,3 +44,7 @@ export const PaymentNetwork = styled.div`
   display: flex;
   gap: 1rem;
 `;
+
+export const CVC = styled(TextField)`
+  width: 50%;
+`;
