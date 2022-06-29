@@ -31,8 +31,8 @@ const Header: React.FC = () => {
             <StyledLink to="/favorites">
               <HeartIcon />
             </StyledLink>
-            <IconContainer>
-              <CartIcon onClick={handleOpenCart} />
+            <IconContainer onClick={handleOpenCart}>
+              <CartIcon />
               <ItemCounter>
                 <p>{allItems}</p>
               </ItemCounter>
