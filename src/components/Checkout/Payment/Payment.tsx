@@ -61,24 +61,17 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
     }),
   });
   const initialValues: initialValuesTypes = {
-    picked:
-      checkoutData?.payment?.picked !== undefined
-        ? checkoutData.payment.picked
-        : "",
-    cardNumber:
-      checkoutData?.payment?.cardNumber !== undefined
-        ? checkoutData.payment.cardNumber
-        : "",
-    expirationMonth:
-      checkoutData?.payment?.expirationMonth !== undefined
-        ? checkoutData.payment.expirationMonth
-        : "",
-    expirationYear:
-      checkoutData?.payment?.expirationYear !== undefined
-        ? checkoutData.payment.expirationYear
-        : "",
-    cvc:
-      checkoutData?.payment?.cvc !== undefined ? checkoutData.payment.cvc : "",
+    picked: checkoutData?.payment?.picked ? checkoutData.payment.picked : "",
+    cardNumber: checkoutData?.payment?.cardNumber
+      ? checkoutData.payment.cardNumber
+      : "",
+    expirationMonth: checkoutData?.payment?.expirationMonth
+      ? checkoutData.payment.expirationMonth
+      : "",
+    expirationYear: checkoutData?.payment?.expirationYear
+      ? checkoutData.payment.expirationYear
+      : "",
+    cvc: checkoutData?.payment?.cvc ? checkoutData.payment.cvc : "",
   };
   return (
     <FormContainer>
