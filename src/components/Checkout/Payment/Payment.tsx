@@ -20,6 +20,7 @@ import {
   PaymentNetwork,
   MasterCardIcon,
   CVC,
+  StyledLabel,
 } from "./PaymentStyles";
 import { initialValuesTypes } from "../assets/interfaces/Interfaces";
 
@@ -126,6 +127,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                     <MasterCardIcon />
                   </PaymentNetwork>
                   <Column>
+                    <StyledLabel>Card Number</StyledLabel>
                     <TextField
                       type={"number"}
                       name="cardNumber"
@@ -138,6 +140,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                   </Column>
                   <ExpirationDate>
                     <ExpirationData>
+                      <StyledLabel>Expiration Month</StyledLabel>
                       <TextField
                         type="text"
                         name="expirationMonth"
@@ -149,6 +152,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       />
                     </ExpirationData>
                     <ExpirationData>
+                      <StyledLabel>Expiration Year</StyledLabel>
                       <TextField
                         type="text"
                         name="expirationYear"
