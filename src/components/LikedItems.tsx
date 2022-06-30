@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.section`
   padding-top: 5rem;
-  max-width: 800px;
+  max-width: 700px;
   margin: auto;
 
   h1 {
@@ -13,8 +13,8 @@ const Container = styled.section`
   }
 
   img {
-    width: 12rem;
-    height: 12rem;
+    width: 16rem;
+    height: 16rem;
     object-fit: cover;
   }
 `;
@@ -26,8 +26,18 @@ const ItemContainer = styled.div`
 `;
 
 const ItemDescription = styled.div`
+  display: flex;
+  flex-direction: column;
   h3 {
     margin-bottom: 2rem;
+  }
+  button {
+    margin: 2rem;
+    border: none;
+    background-color: #00d0a9;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
   }
 `;
 
@@ -54,6 +64,7 @@ const LikedItems = () => {
               <ItemDescription>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
+                <button>Add To Cart</button>
               </ItemDescription>
             </ItemContainer>
           );
