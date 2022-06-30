@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./assets/Views/Home";
 import Checkout from "./components/Checkout/Checkout";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
-import LikedItems from "./components/LikedItems";
+import LikedItems from "./components/LikedItems/LikedItems";
 
 function App() {
   return (
