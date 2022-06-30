@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../ContextProvider";
 import styled from "styled-components";
 
@@ -20,16 +20,21 @@ const ItemContainer = styled.div``;
 
 const LikedItems = () => {
   const ctx = useContext(Context);
-  const likedItems = ctx?.productsList.filter((item) => {
-    return item.liked === true;
-  });
 
-  console.log(likedItems);
+  useEffect(() => {
+    const likedItems = ctx?.productsList.filter((item) => {
+      return item.liked === true;
+    });
+    const allLikedItems = [...likedItems!, ...ctx?.likedItem!];
+    if (ctx?.likedItem) {
+      ctx.setLikedItem(allLikedItems);
+    }
+  }, []);
   return (
     <Container>
       <>
         <h1>Your Favorites!</h1>
-        {likedItems?.map((item) => {
+        {ctx?.likedItem?.map((item) => {
           return (
             <ItemContainer>
               <img src={item.image} alt="" />
