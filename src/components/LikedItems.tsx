@@ -13,16 +13,18 @@ const Container = styled.section`
   }
 
   img {
-    width: 16rem;
-    height: 16rem;
-    object-fit: cover;
+    width: 10rem;
+    display: block;
+    object-fit: fill;
   }
 `;
 
 const ItemContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   margin: 2rem 0;
-  gap: 2rem;
+  gap: 3rem;
+  align-items: center;
 `;
 
 const ItemDescription = styled.div`
@@ -38,6 +40,9 @@ const ItemDescription = styled.div`
     padding: 1rem;
     color: white;
     cursor: pointer;
+    &:hover {
+      background-color: #008970;
+    }
   }
 `;
 
