@@ -1,6 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../../ContextProvider";
-import { Container, ItemContainer, ItemDescription } from "./LikedItemsStyles";
+import {
+  Container,
+  ItemContainer,
+  ItemDescription,
+  StyledLink,
+} from "./LikedItemsStyles";
 import { Products } from "../../ContextProvider";
 
 const LikedItems = () => {
@@ -37,9 +42,13 @@ const LikedItems = () => {
         {ctx?.likedItem?.map((item) => {
           return (
             <ItemContainer>
-              <img src={item.image} alt="" />
+              <StyledLink to={`/product/${item.id}`}>
+                <img src={item.image} alt="" />
+              </StyledLink>
               <ItemDescription>
-                <h3>{item.title}</h3>
+                <StyledLink to={`/product/${item.id}`}>
+                  <h3>{item.title}</h3>
+                </StyledLink>
                 <p>{item.description}</p>
                 <button onClick={(e) => handleAddToCard(item, e)}>
                   Add to cart

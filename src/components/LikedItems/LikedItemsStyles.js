@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../assets/media";
+import { Link } from "react-router-dom";
 
 export const Container = styled.section`
   padding: 5rem 1rem;
@@ -46,4 +47,9 @@ export const ItemDescription = styled.div`
       background-color: #008970;
     }
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
