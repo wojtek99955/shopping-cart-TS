@@ -1,6 +1,7 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../../ContextProvider";
 import { Container, ItemContainer, ItemDescription } from "./LikedItemsStyles";
+import { Products } from "../../ContextProvider";
 
 const LikedItems = () => {
   const ctx = useContext(Context);
@@ -14,6 +15,21 @@ const LikedItems = () => {
       ctx.setLikedItem(allLikedItems);
     }
   }, []);
+  const handleAddToCard = (clickedItem: Products, e: React.MouseEvent) => {
+    e.stopPropagation();
+    ctx?.setCartList((prev) => {
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  };
+
   return (
     <Container>
       <>
@@ -25,7 +41,9 @@ const LikedItems = () => {
               <ItemDescription>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <button>Add To Cart</button>
+                <button onClick={(e) => handleAddToCard(item, e)}>
+                  Add to cart
+                </button>
               </ItemDescription>
             </ItemContainer>
           );
