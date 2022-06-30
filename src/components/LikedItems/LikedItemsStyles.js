@@ -52,4 +52,5 @@ export const ItemDescription = styled.div`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
+  cursor: pointer;
 `;
