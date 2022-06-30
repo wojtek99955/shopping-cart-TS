@@ -28,7 +28,7 @@ const validationSchema = Yup.object().shape({
 
 const ShippingMethod = ({ setStep, setCheckoutData, checkoutData }: Props) => {
   const initialValues: radioValues = {
-    picked: checkoutData?.shipping !== undefined ? checkoutData.shipping : "",
+    picked: checkoutData?.shipping ? checkoutData.shipping : "",
   };
 
   return (
