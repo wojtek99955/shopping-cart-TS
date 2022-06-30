@@ -164,6 +164,7 @@ const Payment = ({ setStep, setCheckoutData, checkoutData }: Props) => {
                       />
                     </ExpirationData>
                   </ExpirationDate>
+                  <StyledLabel>Expiration Month</StyledLabel>
                   <CVC type="text" name="cvc" placeholder="123" />
                   <ErrorMessage name="cvc" component={ValidationError} />
                 </CardContainer>
