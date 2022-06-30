@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { device } from "../../assets/media";
 
 export const Container = styled.section`
-  padding-top: 5rem;
+  padding: 5rem 1rem;
   max-width: 700px;
   margin: auto;
 
@@ -19,10 +20,13 @@ export const Container = styled.section`
 
 export const ItemContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 2rem 0;
   gap: 3rem;
   align-items: center;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export const ItemDescription = styled.div`
