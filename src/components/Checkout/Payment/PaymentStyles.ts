@@ -48,3 +48,8 @@ export const PaymentNetwork = styled.div`
 export const CVC = styled(TextField)`
   width: 50%;
 `;
+
+export const StyledLabel = styled.label`
+  font-size: 0.8rem;
+  display: block;
+`;
